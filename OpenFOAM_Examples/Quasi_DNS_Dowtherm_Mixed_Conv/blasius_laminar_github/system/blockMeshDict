@@ -1,0 +1,99 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1812                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale   0.1;
+
+vertices
+(
+    (0 0 0) 	// point 0
+    (1 0 0) 	// point 1
+    (1 1 0) 	// point 2
+    (0 1 0) 	// point 3
+    (0 0 0.1)	// point 4
+    (1 0 0.1)	// point 5
+    (1 1 0.1) 	// point 6
+    (0 1 0.1)	// point 7
+
+// here are our new vertices
+
+    (6 0 0)     // point 8
+    (6 1 0)     // point 9
+    (6 0 0.1)   // point 10
+    (6 1 0.1)   // point 11
+
+
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (20 80 1) simpleGrading (0.2 40 1) 	// first block
+    hex (1 8 9 2 5 10 11 6) (100 80 1) simpleGrading (6 40 1) 	// second block
+);
+
+edges
+(
+);
+
+boundary
+(
+    zeroGradientPlanes
+    {
+        type patch;
+        faces
+        (
+            (1 5 4 0)  // this is the bottom left side (x=0,1 y=0)
+	    (8 9 11 10) // this is left side outlet (x=2 plane)
+            (3 7 6 2) //this is x=0 and x=1 (top y plane y=1)
+            (2 6 11 9) // this is x=1 and x=2 (top y plane y=1)
+        );
+    }
+
+
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)  // this is x=0
+        );
+    }
+
+    plate
+    {
+        type wall;
+        faces
+        (
+            (1 8 10 5)  // this is the wall where y=0, x=1 and x=2    
+        );
+    }
+    frontAndBack
+    {
+        type empty; // this is for 2D case
+        faces
+        (
+            (0 3 2 1) // z coordinate =0 (low z plane), x=0 or 1
+            (4 5 6 7) // z coordinate =0.1 (large z plane), x=0 or 1
+	    (1 2 9 8) // z = 0  (low z plane), x=1 or 2
+	    (5 10 11 6) // z=0.1 (high z plane) x=1 or 2
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //
