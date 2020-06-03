@@ -15,10 +15,38 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType RAS;
+//simulationType RAS;
 
-//simulationType LES;
+simulationType LES;
 
+LES
+{
+    turbulence      on;
+
+    LESModel        kOmegaSSTIDDES;
+
+
+    printCoeffs     on;
+
+    delta           IDDESDelta;
+
+    IDDESDeltaCoeffs
+    {
+        hmax           maxDeltaxyzCubeRoot;
+        maxDeltaxyzCubeRootCoeffs
+        {
+        }
+    }
+    
+    Prt 		0.85;
+}
+
+
+
+
+
+
+/* WALE MODEL
 LES
 {
     LESModel        WALE;
@@ -90,7 +118,7 @@ LES
         maxDeltaRatio   1.1;
     }
 }
-
+*/
 RAS
 {
     RASModel        kOmegaSST;
