@@ -1,0 +1,456 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : reconstructPar
+Date   : Jun 03 2020
+Time   : 23:05:44
+Host   : LAPTOP-FK3MEHTI
+PID    : 3415
+I/O    : uncollated
+Case   : /home/theodore_ong/GitHub_OpenFoam_workspace/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/IDDESCase1
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Reconstructing fields for mesh region0
+
+Time = 100
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 196.4
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 196.8
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 197.2
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 197.6
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 198
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 198.4
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 198.8
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 199.2
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 199.6
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 200
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        heatTransferCoeff(T)
+        k
+        nut
+        omega
+        p
+        pMean
+        pPrime2Mean
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+        UMean
+        wallShearStress
+
+    Reconstructing volSymmTensorFields
+
+        UPrime2Mean
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+
+End
+

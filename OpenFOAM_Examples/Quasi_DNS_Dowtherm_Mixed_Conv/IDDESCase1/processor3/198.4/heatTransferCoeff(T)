@@ -1,0 +1,222 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "198.4";
+    object      heatTransferCoeff(T);
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 -1 0 0 0];
+
+
+internalField   uniform 0;
+
+boundaryField
+{
+    leftWall
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    rightWall
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+128
+(
+-275.349
+-260.32
+-281.435
+-261.172
+-289.009
+-270.021
+-301.707
+-391.017
+-270.515
+-264.069
+-275.926
+-265.614
+-282.599
+-274.816
+-292.02
+-392.29
+-266.654
+-265.632
+-272.315
+-267.112
+-279.233
+-276.625
+-288.489
+-394.435
+-266.607
+-266.383
+-272.132
+-267.914
+-278.667
+-277.317
+-286.664
+-393.19
+-265.406
+-266.766
+-270.879
+-268.62
+-277.263
+-278.602
+-284.994
+-394.774
+-266.071
+-266.532
+-271.508
+-268.215
+-277.898
+-277.903
+-285.767
+-393.449
+-266.838
+-266.345
+-272.267
+-267.948
+-278.68
+-277.637
+-286.792
+-393.65
+-267.099
+-265.99
+-272.626
+-267.611
+-279.105
+-277.288
+-287.247
+-393.291
+-267.089
+-266.003
+-272.565
+-267.692
+-279
+-277.494
+-287.153
+-393.655
+-267.104
+-265.993
+-272.636
+-267.622
+-279.121
+-277.302
+-287.262
+-393.279
+-266.842
+-266.366
+-272.287
+-267.987
+-278.716
+-277.685
+-286.828
+-393.635
+-266.092
+-266.581
+-271.55
+-268.289
+-277.959
+-277.989
+-285.826
+-393.45
+-265.452
+-266.843
+-270.943
+-268.722
+-277.341
+-278.719
+-285.067
+-394.791
+-266.636
+-266.476
+-272.172
+-268.03
+-278.714
+-277.457
+-286.691
+-393.226
+-266.642
+-265.74
+-272.303
+-267.237
+-279.216
+-276.767
+-288.445
+-394.486
+-270.459
+-264.147
+-275.864
+-265.704
+-282.531
+-274.916
+-291.931
+-392.334
+)
+;
+    }
+    leftSides_periodic0
+    {
+        type            cyclic;
+    }
+    leftSides_periodic1
+    {
+        type            cyclic;
+    }
+    rightSides_periodic0
+    {
+        type            cyclic;
+    }
+    rightSides_periodic1
+    {
+        type            cyclic;
+    }
+    leftInOut_periodic0
+    {
+        type            cyclic;
+    }
+    leftInOut_periodic1
+    {
+        type            cyclic;
+    }
+    rightInOut_periodic0
+    {
+        type            cyclic;
+    }
+    rightInOut_periodic1
+    {
+        type            cyclic;
+    }
+    procBoundary3to1
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary3to1throughrightSides_periodic1
+    {
+        type            processorCyclic;
+        value           uniform 0;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary3to2throughrightInOut_periodic0
+    {
+        type            processorCyclic;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //
