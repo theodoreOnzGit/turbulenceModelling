@@ -11,4 +11,7 @@ rm -rf VTK
 rm -rf constant/cellToRegion
 rm -rf constant/*/polyMesh  # region meshes
 rm -rf constant/polyMeshRANS
+
+rm -rf 0
+cp -ar 0.orig 0
 #------------------------------------------------------------------------------

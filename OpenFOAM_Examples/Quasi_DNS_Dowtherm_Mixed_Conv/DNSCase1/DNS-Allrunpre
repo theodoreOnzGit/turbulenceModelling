@@ -10,13 +10,13 @@ cd ${0%/*} || exit 1                        # Run from this directory
 mv ./constant/polyMesh ./constant/polyMeshRANS
 runApplication -s DNS blockMesh -dict ./system/blockMeshDictDNS
 #- Prep controlDict for mapFields
-sed 's/startFrom       latestTime/startFrom       startTime/' system/controlDict
-sed 's/endTime         300/endTime         200/' system/controlDict
+sed -i 's/startFrom       latestTime/startFrom       startTime/' system/controlDict
+sed -i 's/endTime         300/endTime         200/' system/controlDict
 
 rm -rf 200
 
 runApplication mapFields ../IDDESCase1/. -consistent 
 #- Restore controlDict for buoyantPimpleFoam
-sed 's/startFrom       startTime/startFrom       latestTime/' system/controlDict
-sed 's/endTime         200/endTime         300/' system/controlDict
+sed -i 's/startFrom       startTime/startFrom       latestTime/' system/controlDict
+sed -i 's/endTime         200/endTime         300/' system/controlDict
 #------------------------------------------------------------------------------
