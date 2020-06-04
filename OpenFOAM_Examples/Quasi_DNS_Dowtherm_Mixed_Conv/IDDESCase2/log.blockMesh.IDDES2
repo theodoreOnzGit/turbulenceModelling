@@ -1,0 +1,88 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1906 OPENFOAM=1906
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh -dict ./system/blockMeshDictIDDES
+Date   : Jun 04 2020
+Time   : 12:24:49
+Host   : DESKTOP-9S60IA4
+PID    : 6761
+I/O    : uncollated
+Case   : /home/theodore_ong/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/IDDESCase2
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from "system/blockMeshDictIDDES"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 1
+		Number of boundary faces : 10
+		Number of defined boundary faces : 10
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 0.01
+    Block 0 cell size :
+        i : 0.001125 .. 0.001125
+        j : 4.37829e-05 .. 0.000175132
+        k : 0.003 .. 0.003
+
+    Block 1 cell size :
+        i : 0.001125 .. 0.001125
+        j : 0.000175132 .. 4.37829e-05
+        k : 0.003 .. 0.003
+
+
+There are no merge patch pairs
+
+Detected cyclic patches; ordering boundary faces
+
+Writing polyMesh with 0 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (-0.0225 -0.0075 0) (0.0225 0.0075 0.12)
+  nPoints: 267279
+  nCells: 252800
+  nFaces: 772640
+  nInternalFaces: 744160
+----------------
+Patches
+----------------
+  patch 0 (start: 744160 size: 1600) name: leftWall
+  patch 1 (start: 745760 size: 1600) name: rightWall
+  patch 2 (start: 747360 size: 3160) name: leftSides_periodic0
+  patch 3 (start: 750520 size: 3160) name: leftSides_periodic1
+  patch 4 (start: 753680 size: 3160) name: rightSides_periodic0
+  patch 5 (start: 756840 size: 3160) name: rightSides_periodic1
+  patch 6 (start: 760000 size: 3160) name: leftInOut_periodic0
+  patch 7 (start: 763160 size: 3160) name: leftInOut_periodic1
+  patch 8 (start: 766320 size: 3160) name: rightInOut_periodic0
+  patch 9 (start: 769480 size: 3160) name: rightInOut_periodic1
+
+End
+
