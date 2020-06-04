@@ -17,7 +17,7 @@ FoamFile
 
 //simulationType RAS;
 
-simulationType LES;
+simulationType laminar;
 
 LES
 {
