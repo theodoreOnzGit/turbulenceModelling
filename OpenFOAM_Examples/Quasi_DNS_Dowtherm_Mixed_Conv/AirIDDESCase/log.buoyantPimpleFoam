@@ -1,0 +1,1672 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1906 OPENFOAM=1906
+Arch   : "LSB;label=32;scalar=64"
+Exec   : buoyantPimpleFoam -parallel
+Date   : Jun 05 2020
+Time   : 13:52:45
+Host   : DESKTOP-9S60IA4
+PID    : 8662
+I/O    : uncollated
+Case   : /home/theodore_ong/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/AirIDDESCase
+nProcs : 4
+Hosts  :
+(
+    (DESKTOP-9S60IA4 4)
+)
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+PIMPLE: Operating solver in PISO mode
+
+Reading thermophysical properties
+
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Creating turbulence model
+
+Selecting turbulence model type LES
+Selecting LES turbulence model kOmegaSSTIDDES
+Selecting LES delta type IDDESDelta
+Selecting LES hmax type maxDeltaxyzCubeRoot
+Selecting patchDistMethod meshWave
+--> FOAM Warning : 
+    From function const volVectorField& Foam::wallDist::n() const
+    in file fvMesh/wallDist/wallDist/wallDist.C at line 201
+    n requested but 'nRequired' not specified in the wallDist dictionary
+    Recalculating y and n fields.
+Creating finite volume options from "constant/fvOptions"
+
+Selecting finite volume options type meanVelocityForce
+    Source: momentumSource
+    - selecting all cells
+    - selected 204768 cell(s) with volume 0.00130863
+    Initial pressure gradient = 0
+
+LES
+{
+    turbulence      on;
+    LESModel        kOmegaSSTIDDES;
+    printCoeffs     on;
+    delta           IDDESDelta;
+    IDDESDeltaCoeffs
+    {
+        hmax            maxDeltaxyzCubeRoot;
+        maxDeltaxyzCubeRootCoeffs
+        {
+        }
+    }
+    Prt             0.85;
+    Ce              1.048;
+    alphaK1         0.85;
+    alphaK2         1;
+    alphaOmega1     0.5;
+    alphaOmega2     0.856;
+    gamma1          0.555556;
+    gamma2          0.44;
+    beta1           0.075;
+    beta2           0.0828;
+    betaStar        0.09;
+    a1              0.31;
+    b1              1;
+    c1              10;
+    F3              false;
+    decayControl    false;
+    kInf            0;
+    omegaInf        0;
+    kappa           0.41;
+    CDESkom         0.82;
+    CDESkeps        0.6;
+    Cdt1            20;
+    Cdt2            3;
+    Cl              5;
+    Ct              1.87;
+}
+
+
+Reading g
+
+Reading hRef
+Calculating field g.h
+
+Reading field p_rgh
+
+Creating field dpdt
+
+Creating field kinetic energy K
+
+No MRF models present
+
+Radiation model not active: radiationProperties not found
+Selecting radiationModel none
+Courant Number mean: 0 max: 0
+
+Starting time loop
+
+fieldAverage fieldAverage1:
+    Restarting averaging for fields:
+        U: starting averaging at time 0
+        p: starting averaging at time 0
+
+Selecting heat transfer coefficient model fixedReferenceTemperature
+Selecting heat transfer coefficient model fixedReferenceTemperature
+wallShearStress localWallShearStress:
+    processing wall patches: 
+        leftWall
+        rightWall
+
+surfaceFieldValue avg_ValuesRight:
+    operation     = areaAverage
+
+
+surfaceFieldValue avg_ValuesLeft:
+    operation     = areaAverage
+
+
+--> FOAM Warning : 
+    From function void Foam::particle::locate(const vector&, const vector*, Foam::label, bool, const Foam::string&)
+    in file particle/particle.C at line 483
+    Particle initialised with a location outside of the mesh when tracking from centre (-0.00158 -0.00736041 0.0632) of cell 11033 to position (0 -0.0075 0.06)
+--> FOAM Warning : 
+    From function void Foam::particle::locate(const vector&, const vector*, Foam::label, bool, const Foam::string&)
+    in file particle/particle.C at line 483
+    Particle initialised with a location outside of the mesh when tracking from centre (-0.00158 -0.00736041 0.0632) of cell 11033 to position (0 -0.0075 0.06)
+Reading set description:
+    faceLineIntersection
+    uniformPoints
+
+Courant Number mean: 0 max: 0
+deltaT = 0.00024
+Time = 0.00024
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.999869, Final residual = 4.95313e-09, No Iterations 4
+DILUPBiCGStab:  Solving for Uy, Initial residual = 1, Final residual = 4.58106e-09, No Iterations 4
+DILUPBiCGStab:  Solving for Uz, Initial residual = 1, Final residual = 6.63562e-10, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 2.64134e-13, pressure gradient = 99479.6
+DILUPBiCGStab:  Solving for h, Initial residual = 1, Final residual = 1.47565e-09, No Iterations 4
+GAMG:  Solving for p_rgh, Initial residual = 0.991175, Final residual = 0.00602556, No Iterations 5
+Pressure gradient source: uncorrected Ubar = 1.14969, pressure gradient = 7188.73
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 7.12498e-06, global = 2.68253e-14, cumulative = 2.68253e-14
+GAMG:  Solving for p_rgh, Initial residual = 0.616689, Final residual = 5.07055e-08, No Iterations 18
+Pressure gradient source: uncorrected Ubar = 1.15149, pressure gradient = 7044.39
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 7.53265e-07, global = -6.46567e-10, cumulative = -6.4654e-10
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.267866, Final residual = 7.90352e-10, No Iterations 3
+DILUPBiCGStab:  Solving for k, Initial residual = 1, Final residual = 2.645e-09, No Iterations 3
+ExecutionTime = 3.44 s  ClockTime = 3 s
+
+fieldAverage fieldAverage1:
+    Reading/initialising field UMean
+    Reading/initialising field pMean
+    Reading/initialising field UPrime2Mean
+    Reading/initialising field pPrime2Mean
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0627286 max: 0.152852
+deltaT = 0.000141313
+Time = 0.000381313
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.666055, Final residual = 2.80704e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.928031, Final residual = 1.39734e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.492954, Final residual = 1.28049e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 2.09985, pressure gradient = -5353.13
+DILUPBiCGStab:  Solving for h, Initial residual = 0.228811, Final residual = 1.77466e-10, No Iterations 2
+GAMG:  Solving for p_rgh, Initial residual = 0.896683, Final residual = 0.00752689, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 2.05717, pressure gradient = -4738.27
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 0.000105806, global = -7.03456e-10, cumulative = -1.35e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.310218, Final residual = 8.72961e-08, No Iterations 26
+Pressure gradient source: uncorrected Ubar = 2.05592, pressure gradient = -4720.36
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 8.44061e-05, global = -3.67029e-10, cumulative = -1.71702e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.12823, Final residual = 7.87554e-09, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.108527, Final residual = 2.10461e-10, No Iterations 2
+ExecutionTime = 5.5 s  ClockTime = 5 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.067372 max: 0.108533
+deltaT = 0.000117183
+Time = 0.000498496
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.292791, Final residual = 3.28854e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.782689, Final residual = 5.19978e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.350397, Final residual = 1.98596e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 0.695061, pressure gradient = 4648.81
+DILUPBiCGStab:  Solving for h, Initial residual = 0.110821, Final residual = 1.62143e-10, No Iterations 2
+GAMG:  Solving for p_rgh, Initial residual = 0.74147, Final residual = 0.00698855, No Iterations 7
+Pressure gradient source: uncorrected Ubar = 0.717736, pressure gradient = 4258.42
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 0.00011252, global = -3.0311e-10, cumulative = -2.02013e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.081345, Final residual = 9.18265e-08, No Iterations 19
+Pressure gradient source: uncorrected Ubar = 0.718313, pressure gradient = 4248.48
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 8.99311e-05, global = -2.01032e-10, cumulative = -2.22117e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.156934, Final residual = 8.66492e-09, No Iterations 1
+bounding omega, min: -50640 max: 512263 average: 9403.88
+DILUPBiCGStab:  Solving for k, Initial residual = 0.150253, Final residual = 4.71193e-11, No Iterations 2
+ExecutionTime = 7.44 s  ClockTime = 7 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0350671 max: 0.277048
+deltaT = 3.80672e-05
+Time = 0.000536563
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.430606, Final residual = 8.51783e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.836321, Final residual = 6.65819e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.100328, Final residual = 8.12326e-11, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.39842, pressure gradient = -3942.41
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0269471, Final residual = 1.25539e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.341013, Final residual = 0.000726258, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.39611, pressure gradient = -3823.35
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.92289e-05, global = -3.57497e-11, cumulative = -2.25692e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0093108, Final residual = 3.1848e-08, No Iterations 8
+Pressure gradient source: uncorrected Ubar = 1.39609, pressure gradient = -3822.17
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.55373e-05, global = -4.88853e-11, cumulative = -2.3058e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 4.01833e-09, No Iterations 1
+bounding omega, min: -3.47987e+12 max: 7.12225e+16 average: 4.17195e+14
+DILUPBiCGStab:  Solving for k, Initial residual = 0.357656, Final residual = 2.07579e-13, No Iterations 1
+ExecutionTime = 8.95 s  ClockTime = 9 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00786049 max: 0.123058
+deltaT = 2.78409e-05
+Time = 0.000564404
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.26859, Final residual = 2.75537e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.899132, Final residual = 4.12497e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0681981, Final residual = 2.67458e-11, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.13446, pressure gradient = 3519.63
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0184193, Final residual = 6.92772e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.156671, Final residual = 0.000301694, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.13558, pressure gradient = 3441.11
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.03488e-05, global = -2.75829e-11, cumulative = -2.33339e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0141738, Final residual = 4.06575e-08, No Iterations 6
+Pressure gradient source: uncorrected Ubar = 1.13559, pressure gradient = 3440.54
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 8.4067e-06, global = -3.53232e-11, cumulative = -2.36871e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.999984, Final residual = 3.74037e-16, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0359864, Final residual = 4.66663e-11, No Iterations 1
+bounding k, min: -0.000180382 max: 0.00103369 average: 0.000462556
+ExecutionTime = 10.4 s  ClockTime = 10 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00508906 max: 0.0951088
+deltaT = 2.63455e-05
+Time = 0.00059075
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.194315, Final residual = 1.36485e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.585853, Final residual = 2.53318e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0568831, Final residual = 9.55717e-09, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.32847, pressure gradient = -3163.29
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0139049, Final residual = 3.91485e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.280198, Final residual = 0.00102075, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.32757, pressure gradient = -3096.36
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.654e-05, global = -3.3134e-11, cumulative = -2.40184e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0330676, Final residual = 4.20691e-08, No Iterations 6
+Pressure gradient source: uncorrected Ubar = 1.32756, pressure gradient = -3095.91
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.33203e-05, global = -3.38141e-11, cumulative = -2.43566e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 5.33346e-11, No Iterations 1
+bounding omega, min: -3.86068e+16 max: 512239 average: -2.29342e+14
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0367118, Final residual = 8.49605e-11, No Iterations 1
+ExecutionTime = 11.86 s  ClockTime = 11 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00621115 max: 0.0845455
+deltaT = 2.80451e-05
+Time = 0.000618795
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.166938, Final residual = 1.32483e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.253898, Final residual = 1.76354e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0555686, Final residual = 2.14257e-11, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.15375, pressure gradient = 2851.49
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0162461, Final residual = 3.63413e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.802168, Final residual = 0.00450651, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.15467, pressure gradient = 2787.22
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.67005e-05, global = -3.57604e-11, cumulative = -2.47142e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0685904, Final residual = 7.23447e-08, No Iterations 6
+Pressure gradient source: uncorrected Ubar = 1.15468, pressure gradient = 2786.75
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.31576e-05, global = -3.9172e-11, cumulative = -2.51059e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.10082e-09, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.31807, Final residual = 4.3342e-14, No Iterations 1
+ExecutionTime = 13.29 s  ClockTime = 13 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00653306 max: 0.0627157
+deltaT = 3.20698e-05
+Time = 0.000650865
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.199447, Final residual = 1.74453e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.148982, Final residual = 8.65105e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0560949, Final residual = 2.72706e-11, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.32722, pressure gradient = -2574.24
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0283032, Final residual = 2.06363e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.637996, Final residual = 0.0059727, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.32614, pressure gradient = -2508.47
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.2451e-05, global = -4.96969e-11, cumulative = -2.56029e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0117853, Final residual = 7.38944e-08, No Iterations 6
+Pressure gradient source: uncorrected Ubar = 1.32613, pressure gradient = -2507.93
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 9.17561e-06, global = -4.78744e-11, cumulative = -2.60816e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.99995, Final residual = 2.54309e-16, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0695234, Final residual = 1.02077e-10, No Iterations 1
+bounding k, min: -0.000288954 max: 0.00093215 average: 0.000416007
+ExecutionTime = 14.73 s  ClockTime = 14 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00623142 max: 0.0134072
+deltaT = 3.84837e-05
+Time = 0.000689348
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.268613, Final residual = 5.31848e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.870695, Final residual = 1.38874e-09, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0618006, Final residual = 5.95909e-11, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.14423, pressure gradient = 2328.54
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0375796, Final residual = 5.65354e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.168812, Final residual = 0.000750093, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.14562, pressure gradient = 2257.75
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.02764e-05, global = -6.21523e-11, cumulative = -2.67031e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00791386, Final residual = 4.93451e-08, No Iterations 7
+Pressure gradient source: uncorrected Ubar = 1.14563, pressure gradient = 2257.06
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.66323e-05, global = -6.28878e-11, cumulative = -2.7332e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 4.26895e-10, No Iterations 1
+bounding omega, min: -7.34443e+18 max: 512232 average: -5.26571e+15
+DILUPBiCGStab:  Solving for k, Initial residual = 0.10998, Final residual = 2.26711e-10, No Iterations 1
+ExecutionTime = 16.24 s  ClockTime = 16 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.010331 max: 0.106805
+deltaT = 3.24285e-05
+Time = 0.000721777
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.273921, Final residual = 3.54841e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.657909, Final residual = 4.87533e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0460486, Final residual = 2.29256e-11, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.3113, pressure gradient = -2086.22
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0240962, Final residual = 1.99058e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.156868, Final residual = 0.000249042, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.3104, pressure gradient = -2031.84
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.89213e-05, global = -5.23944e-11, cumulative = -2.78559e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0163806, Final residual = 2.03626e-08, No Iterations 7
+Pressure gradient source: uncorrected Ubar = 1.31039, pressure gradient = -2031.37
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.14856e-05, global = -5.11365e-11, cumulative = -2.83673e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 7.02478e-09, No Iterations 1
+bounding omega, min: -1.17647e+14 max: 3.58029e+19 average: 1.36813e+16
+DILUPBiCGStab:  Solving for k, Initial residual = 0.428964, Final residual = 9.95606e-14, No Iterations 1
+ExecutionTime = 17.74 s  ClockTime = 17 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0131544 max: 0.140508
+deltaT = 2.07715e-05
+Time = 0.000742548
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.220803, Final residual = 7.49383e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.274999, Final residual = 5.12214e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0269072, Final residual = 3.06151e-09, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.19769, pressure gradient = 1859.93
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00689118, Final residual = 1.13232e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.499297, Final residual = 0.000565548, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.19803, pressure gradient = 1828.68
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.10488e-05, global = -3.11809e-11, cumulative = -2.86791e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0238452, Final residual = 4.16676e-08, No Iterations 5
+Pressure gradient source: uncorrected Ubar = 1.19803, pressure gradient = 1828.51
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.69807e-05, global = -3.2488e-11, cumulative = -2.9004e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.999945, Final residual = 2.91863e-17, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0557507, Final residual = 2.41393e-11, No Iterations 1
+bounding k, min: -0.000217841 max: 0.00127446 average: 0.000399121
+ExecutionTime = 19.15 s  ClockTime = 19 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0093915 max: 0.085257
+deltaT = 2.1927e-05
+Time = 0.000764475
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.233488, Final residual = 7.26859e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.108015, Final residual = 1.3982e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0253345, Final residual = 2.91511e-09, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.27871, pressure gradient = -1675.05
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0193162, Final residual = 9.73623e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.916509, Final residual = 0.00146481, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.27838, pressure gradient = -1645.38
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.35959e-05, global = -3.41396e-11, cumulative = -2.93454e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00934636, Final residual = 9.44271e-09, No Iterations 5
+Pressure gradient source: uncorrected Ubar = 1.27838, pressure gradient = -1645.21
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.09063e-05, global = -3.44816e-11, cumulative = -2.96902e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.49451e-10, No Iterations 1
+bounding omega, min: -1.80329e+19 max: 1.26797e+11 average: -6.33052e+15
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0746255, Final residual = 7.37968e-11, No Iterations 1
+ExecutionTime = 20.53 s  ClockTime = 20 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00966904 max: 0.0609415
+deltaT = 2.51653e-05
+Time = 0.00078964
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.260671, Final residual = 1.02845e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.394851, Final residual = 1.4713e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0263997, Final residual = 4.47058e-09, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.19847, pressure gradient = 1511.98
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0343331, Final residual = 2.43602e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.431771, Final residual = 0.00137045, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.19887, pressure gradient = 1481.22
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 9.26715e-06, global = -3.88925e-11, cumulative = -3.00791e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00256461, Final residual = 6.58616e-08, No Iterations 5
+Pressure gradient source: uncorrected Ubar = 1.19887, pressure gradient = 1481.01
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 7.14093e-06, global = -4.20168e-11, cumulative = -3.04993e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.13457e-09, No Iterations 1
+bounding omega, min: -1.47465e+14 max: 7.3349e+19 average: 1.4012e+16
+DILUPBiCGStab:  Solving for k, Initial residual = 0.270551, Final residual = 6.41416e-14, No Iterations 1
+bounding k, min: -0.000150761 max: 0.00109765 average: 0.000399069
+ExecutionTime = 21.95 s  ClockTime = 22 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00771693 max: 0.0116856
+deltaT = 3.01983e-05
+Time = 0.000819839
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.289358, Final residual = 1.58275e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.879682, Final residual = 4.82105e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.028248, Final residual = 6.12869e-09, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.28327, pressure gradient = -1366.19
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0463213, Final residual = 4.44307e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.170275, Final residual = 0.00120059, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.28276, pressure gradient = -1333.24
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.55214e-05, global = -5.42169e-11, cumulative = -3.10415e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00304463, Final residual = 2.49304e-08, No Iterations 6
+Pressure gradient source: uncorrected Ubar = 1.28276, pressure gradient = -1332.99
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.13439e-05, global = -5.41114e-11, cumulative = -3.15826e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.999959, Final residual = 2.59211e-17, No Iterations 1
+bounding omega, min: -9.49935e+10 max: 1.53967e+09 average: -845868
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0726445, Final residual = 8.5102e-11, No Iterations 1
+bounding k, min: -0.000294331 max: 0.000872632 average: 0.000384749
+ExecutionTime = 23.39 s  ClockTime = 23 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00803596 max: 0.112262
+deltaT = 2.42098e-05
+Time = 0.000844049
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.200859, Final residual = 6.41688e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.708419, Final residual = 2.13489e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0205571, Final residual = 2.97961e-09, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.20747, pressure gradient = 1223.22
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0275829, Final residual = 1.6703e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0529274, Final residual = 0.000387681, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.20777, pressure gradient = 1199.37
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.6826e-05, global = -4.50624e-11, cumulative = -3.20332e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00682247, Final residual = 2.71522e-08, No Iterations 5
+Pressure gradient source: uncorrected Ubar = 1.20777, pressure gradient = 1199.22
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.79246e-05, global = -4.63243e-11, cumulative = -3.24965e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 9.02943e-13, No Iterations 2
+bounding omega, min: -3.4644e+19 max: 8.1336e+15 average: -5.67943e+15
+DILUPBiCGStab:  Solving for k, Initial residual = 0.511971, Final residual = 4.99688e-11, No Iterations 1
+bounding k, min: -0.000393675 max: 0.00132685 average: 0.000410257
+ExecutionTime = 24.79 s  ClockTime = 24 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0117754 max: 0.140305
+deltaT = 1.55297e-05
+Time = 0.000859578
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.126348, Final residual = 1.34273e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.307576, Final residual = 2.50991e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0118044, Final residual = 7.86896e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.25758, pressure gradient = -1093.7
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0056727, Final residual = 8.8465e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.196825, Final residual = 5.69983e-05, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.25747, pressure gradient = -1079.81
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.80602e-05, global = -3.16147e-11, cumulative = -3.28126e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00647383, Final residual = 6.71971e-09, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1.25747, pressure gradient = -1079.75
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.27365e-05, global = -3.0847e-11, cumulative = -3.31211e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 5.04315e-10, No Iterations 1
+bounding omega, min: -2.90292e+14 max: 6.32678e+19 average: 6.37297e+15
+DILUPBiCGStab:  Solving for k, Initial residual = 0.232265, Final residual = 8.10622e-14, No Iterations 1
+bounding k, min: -0.000166669 max: 0.00166554 average: 0.000388356
+ExecutionTime = 26.16 s  ClockTime = 26 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00923484 max: 0.0880224
+deltaT = 1.58786e-05
+Time = 0.000875457
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.145951, Final residual = 1.73539e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.17156, Final residual = 1.67382e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0109066, Final residual = 5.66436e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.22236, pressure gradient = 984.478
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0219961, Final residual = 5.27216e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.730411, Final residual = 0.000127595, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.22246, pressure gradient = 971.75
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.40081e-05, global = -3.26055e-11, cumulative = -3.34471e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0264601, Final residual = 3.20883e-08, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1.22246, pressure gradient = 971.696
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.9436e-05, global = -3.24519e-11, cumulative = -3.37716e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.999984, Final residual = 1.23176e-17, No Iterations 1
+bounding omega, min: -3.40023e+15 max: 1.5338e+12 average: -4.73154e+10
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0971473, Final residual = 1.45908e-12, No Iterations 1
+bounding k, min: -0.000412958 max: 0.00184298 average: 0.000378991
+ExecutionTime = 27.53 s  ClockTime = 27 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0100102 max: 0.0685389
+deltaT = 1.79636e-05
+Time = 0.00089342
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.220168, Final residual = 3.52572e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0321216, Final residual = 3.55103e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0110608, Final residual = 1.12123e-09, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.25642, pressure gradient = -887.168
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0453823, Final residual = 1.57593e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.885562, Final residual = 0.000397671, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.2563, pressure gradient = -874.226
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.77742e-05, global = -3.8909e-11, cumulative = -3.41607e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00361537, Final residual = 1.30567e-08, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1.2563, pressure gradient = -874.164
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.4299e-05, global = -3.74004e-11, cumulative = -3.45347e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.99984, Final residual = 4.42081e-11, No Iterations 1
+bounding omega, min: -3.34306e+19 max: 6.21789e+18 average: -2.98145e+15
+DILUPBiCGStab:  Solving for k, Initial residual = 0.521813, Final residual = 4.48985e-12, No Iterations 1
+bounding k, min: -0.000365419 max: 0.00150143 average: 0.00040201
+ExecutionTime = 28.84 s  ClockTime = 29 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.010066 max: 0.027868
+deltaT = 2.15564e-05
+Time = 0.000914977
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.337767, Final residual = 8.57379e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.43471, Final residual = 9.47207e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0120074, Final residual = 9.63574e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.22068, pressure gradient = 801.586
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0674096, Final residual = 3.79514e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.376121, Final residual = 0.00051715, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.22083, pressure gradient = 787.57
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 7.95627e-06, global = -4.55691e-11, cumulative = -3.49904e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00115008, Final residual = 9.2866e-08, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1.22083, pressure gradient = 787.489
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 6.43593e-06, global = -4.56566e-11, cumulative = -3.5447e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.81126e-15, No Iterations 1
+bounding omega, min: -1.31574e+15 max: 1.44526e+20 average: 8.45486e+15
+DILUPBiCGStab:  Solving for k, Initial residual = 0.268066, Final residual = 6.48985e-14, No Iterations 1
+bounding k, min: -0.000480657 max: 0.00131514 average: 0.000379218
+ExecutionTime = 30.09 s  ClockTime = 30 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00670413 max: 0.0757986
+deltaT = 2.41159e-05
+Time = 0.000939093
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.345202, Final residual = 1.07836e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.870585, Final residual = 2.77997e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0120509, Final residual = 2.40082e-09, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.25793, pressure gradient = -722.201
+DILUPBiCGStab:  Solving for h, Initial residual = 0.068093, Final residual = 4.85804e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.148734, Final residual = 0.000342837, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.25776, pressure gradient = -708.17
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.62095e-05, global = -5.25884e-11, cumulative = -3.59729e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0026546, Final residual = 6.96051e-08, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1.25776, pressure gradient = -708.081
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.7892e-05, global = -5.17225e-11, cumulative = -3.64901e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.999995, Final residual = 5.53568e-17, No Iterations 1
+bounding omega, min: -3.88564e+18 max: 3.56701e+14 average: -7.33978e+13
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0419968, Final residual = 1.29172e-10, No Iterations 1
+bounding k, min: -0.000443687 max: 0.00267424 average: 0.00036995
+ExecutionTime = 31.37 s  ClockTime = 31 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0103818 max: 0.234753
+deltaT = 9.24559e-06
+Time = 0.000948338
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.113135, Final residual = 3.53325e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.463626, Final residual = 8.54639e-12, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0041767, Final residual = 5.74986e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23279, pressure gradient = 642.066
+DILUPBiCGStab:  Solving for h, Initial residual = 0.017085, Final residual = 1.82889e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0102311, Final residual = 3.08404e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23282, pressure gradient = 637.189
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.52594e-05, global = -1.94004e-11, cumulative = -3.66841e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00220979, Final residual = 1.40095e-08, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23282, pressure gradient = 637.176
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.85801e-05, global = -1.96944e-11, cumulative = -3.68811e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 0.999998, Final residual = 5.03191e-11, No Iterations 1
+bounding omega, min: -4.40431e+19 max: 1.94447e+19 average: -7.84238e+14
+DILUPBiCGStab:  Solving for k, Initial residual = 0.619873, Final residual = 5.99185e-13, No Iterations 1
+bounding k, min: -0.00018048 max: 0.00390439 average: 0.000382267
+ExecutionTime = 32.55 s  ClockTime = 32 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00578245 max: 0.0917122
+deltaT = 9.07298e-06
+Time = 0.000957411
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0948768, Final residual = 2.67095e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.322238, Final residual = 9.72762e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00368244, Final residual = 1.07548e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24494, pressure gradient = -578.695
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00551089, Final residual = 4.21294e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0512506, Final residual = 7.6061e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24492, pressure gradient = -574.378
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.37555e-05, global = -1.91018e-11, cumulative = -3.70721e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00111736, Final residual = 1.54979e-08, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.24492, pressure gradient = -574.367
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.10648e-05, global = -1.93813e-11, cumulative = -3.72659e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 4.45275e-17, No Iterations 1
+bounding omega, min: -1.17487e+14 max: 2.77191e+20 average: 4.24576e+15
+DILUPBiCGStab:  Solving for k, Initial residual = 0.098648, Final residual = 6.62756e-14, No Iterations 1
+bounding k, min: -0.000491656 max: 0.00536745 average: 0.000372584
+ExecutionTime = 33.7 s  ClockTime = 33 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00738429 max: 0.0822664
+deltaT = 9.9259e-06
+Time = 0.000967337
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0874229, Final residual = 2.83576e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.253221, Final residual = 8.9081e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00364921, Final residual = 5.6829e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23363, pressure gradient = 519.903
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0123606, Final residual = 1.81883e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.136151, Final residual = 0.000283846, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23365, pressure gradient = 515.665
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.43242e-05, global = -2.09063e-11, cumulative = -3.74749e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00345074, Final residual = 2.83632e-08, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23365, pressure gradient = 515.653
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.75182e-05, global = -2.13559e-11, cumulative = -3.76885e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 9.43083e-18, No Iterations 1
+bounding omega, min: -1.17482e+19 max: 2.23947e+18 average: -8.70596e+14
+DILUPBiCGStab:  Solving for k, Initial residual = 0.15905, Final residual = 7.44189e-12, No Iterations 1
+bounding k, min: -0.000430592 max: 0.00680393 average: 0.000369684
+ExecutionTime = 34.89 s  ClockTime = 35 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00984715 max: 0.0811425
+deltaT = 1.10094e-05
+Time = 0.000978347
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0915659, Final residual = 4.23121e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.190904, Final residual = 7.71396e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00365444, Final residual = 1.52304e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24484, pressure gradient = -469.883
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0287938, Final residual = 5.13681e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.355505, Final residual = 0.00114198, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24482, pressure gradient = -465.652
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.1762e-05, global = -2.39201e-11, cumulative = -3.79277e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0039842, Final residual = 1.91242e-09, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.24481, pressure gradient = -465.64
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 8.78423e-06, global = -2.41329e-11, cumulative = -3.8169e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.11561e-12, No Iterations 1
+bounding omega, min: -1.71853e+20 max: 1.94919e+23 average: 1.01854e+18
+DILUPBiCGStab:  Solving for k, Initial residual = 0.41785, Final residual = 5.14311e-13, No Iterations 1
+bounding k, min: -0.000383449 max: 0.00791528 average: 0.00037781
+ExecutionTime = 36.09 s  ClockTime = 36 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0124272 max: 0.0661447
+deltaT = 1.25074e-05
+Time = 0.000990854
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.133671, Final residual = 9.00202e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.108925, Final residual = 4.84568e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00401258, Final residual = 1.11365e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23351, pressure gradient = 422.06
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0538473, Final residual = 1.20203e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.973686, Final residual = 0.00515233, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23354, pressure gradient = 417.733
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.41576e-05, global = -2.75714e-11, cumulative = -3.84448e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0182474, Final residual = 6.69911e-08, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.23354, pressure gradient = 417.718
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.59426e-05, global = -2.80893e-11, cumulative = -3.87256e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 3.09313e-13, No Iterations 1
+bounding omega, min: -4.3672e+23 max: 4.85202e+31 average: 2.38157e+26
+DILUPBiCGStab:  Solving for k, Initial residual = 0.149738, Final residual = 6.53987e-14, No Iterations 1
+bounding k, min: -0.000902336 max: 0.00735348 average: 0.000366981
+ExecutionTime = 37.26 s  ClockTime = 37 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0145794 max: 0.0201853
+deltaT = 1.50089e-05
+Time = 0.00100586
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.238642, Final residual = 2.04148e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.065912, Final residual = 6.72826e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00459329, Final residual = 2.44956e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24542, pressure gradient = -381.315
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0834397, Final residual = 2.50634e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.634079, Final residual = 0.000143744, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.24538, pressure gradient = -376.657
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.16097e-05, global = -3.50598e-11, cumulative = -3.90762e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00103459, Final residual = 6.46872e-08, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.24538, pressure gradient = -376.638
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 9.36694e-06, global = -3.44515e-11, cumulative = -3.94208e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.39625e-16, No Iterations 1
+bounding omega, min: -7.75684e+21 max: 1.0942e+28 average: 6.22237e+22
+DILUPBiCGStab:  Solving for k, Initial residual = 0.521625, Final residual = 1.41489e-12, No Iterations 1
+bounding k, min: -0.00043908 max: 0.00534681 average: 0.000362614
+ExecutionTime = 38.51 s  ClockTime = 38 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0151198 max: 0.0842134
+deltaT = 1.60402e-05
+Time = 0.0010219
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.323336, Final residual = 3.32788e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.525013, Final residual = 4.76482e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00579657, Final residual = 3.6686e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23329, pressure gradient = 344.236
+DILUPBiCGStab:  Solving for h, Initial residual = 0.096002, Final residual = 3.10667e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.268743, Final residual = 0.000103607, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23332, pressure gradient = 339.749
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 7.10611e-06, global = -3.71335e-11, cumulative = -3.97921e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000562948, Final residual = 3.53321e-08, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.23332, pressure gradient = 339.73
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 5.69888e-06, global = -3.68235e-11, cumulative = -4.01603e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.44305e-21, No Iterations 1
+bounding omega, min: -1.84143e+25 max: 1.15792e+27 average: 9.76524e+21
+DILUPBiCGStab:  Solving for k, Initial residual = 0.373538, Final residual = 5.74965e-13, No Iterations 1
+bounding k, min: -0.000991229 max: 0.00554691 average: 0.000372054
+ExecutionTime = 39.76 s  ClockTime = 39 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00946991 max: 0.235571
+deltaT = 6.12815e-06
+Time = 0.00102803
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.124003, Final residual = 2.13387e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.626319, Final residual = 7.77748e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00207323, Final residual = 5.69819e-12, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24128, pressure gradient = -304.959
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0305591, Final residual = 1.36524e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0643175, Final residual = 1.00811e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24128, pressure gradient = -303.407
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.41097e-05, global = -1.37504e-11, cumulative = -4.02978e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000971626, Final residual = 3.53622e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.24128, pressure gradient = -303.405
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.95557e-05, global = -1.37164e-11, cumulative = -4.0435e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 5.79413e-17, No Iterations 1
+bounding omega, min: -7.3149e+27 max: 3.1764e+31 average: 1.63972e+26
+DILUPBiCGStab:  Solving for k, Initial residual = 0.197432, Final residual = 9.87441e-14, No Iterations 1
+bounding k, min: -0.000220083 max: 0.00641461 average: 0.000362056
+ExecutionTime = 40.93 s  ClockTime = 41 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0022813 max: 0.0911362
+deltaT = 6.05176e-06
+Time = 0.00103408
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.109378, Final residual = 1.74005e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.773574, Final residual = 9.27972e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00238359, Final residual = 2.84106e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23742, pressure gradient = 277.75
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0236626, Final residual = 1.03438e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0378741, Final residual = 5.59212e-06, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23743, pressure gradient = 276.372
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.94116e-06, global = -1.29874e-11, cumulative = -4.05649e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000131409, Final residual = 2.12781e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23743, pressure gradient = 276.37
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.58761e-06, global = -1.31861e-11, cumulative = -4.06967e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 9.94747e-21, No Iterations 1
+bounding omega, min: -3.53887e+24 max: 4.1015e+31 average: 2.01195e+26
+DILUPBiCGStab:  Solving for k, Initial residual = 0.238314, Final residual = 6.16686e-13, No Iterations 1
+bounding k, min: -0.00314003 max: 0.00758407 average: 0.000357817
+ExecutionTime = 42.1 s  ClockTime = 42 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00120041 max: 0.0824867
+deltaT = 6.60298e-06
+Time = 0.00104069
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.103357, Final residual = 1.77016e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.850818, Final residual = 4.91041e-12, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00239669, Final residual = 1.73889e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24103, pressure gradient = -246.723
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0146978, Final residual = 8.75841e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0195316, Final residual = 8.21818e-06, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24102, pressure gradient = -245.369
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.78386e-05, global = -1.37624e-11, cumulative = -4.08344e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00100593, Final residual = 8.18536e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.24102, pressure gradient = -245.366
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.25702e-05, global = -1.38774e-11, cumulative = -4.09731e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.4953e-20, No Iterations 1
+bounding omega, min: -4.36161e+28 max: 3.5409e+28 average: -7.5871e+22
+DILUPBiCGStab:  Solving for k, Initial residual = 0.105986, Final residual = 3.91086e-13, No Iterations 1
+bounding k, min: -0.000217292 max: 0.0094768 average: 0.000367918
+ExecutionTime = 43.27 s  ClockTime = 43 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00288951 max: 0.0879451
+deltaT = 6.75726e-06
+Time = 0.00104744
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0916136, Final residual = 1.40632e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.585905, Final residual = 8.97198e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00270322, Final residual = 4.49038e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.2376, pressure gradient = 225.27
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00663384, Final residual = 6.34933e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0151551, Final residual = 1.77284e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.2376, pressure gradient = 224.023
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.29209e-06, global = -1.34147e-11, cumulative = -4.11073e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000249505, Final residual = 6.99735e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.2376, pressure gradient = 224.021
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.46372e-06, global = -1.35721e-11, cumulative = -4.1243e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.58666e-19, No Iterations 1
+bounding omega, min: -7.08092e+24 max: 2.45732e+30 average: 1.44095e+25
+DILUPBiCGStab:  Solving for k, Initial residual = 0.202684, Final residual = 4.46219e-14, No Iterations 1
+bounding k, min: -0.000612058 max: 0.0111025 average: 0.000358702
+ExecutionTime = 44.45 s  ClockTime = 44 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00477294 max: 0.0843325
+deltaT = 7.21138e-06
+Time = 0.00105465
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0878384, Final residual = 1.33454e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.405751, Final residual = 7.36733e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0027809, Final residual = 3.381e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24082, pressure gradient = -200.482
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0113677, Final residual = 7.03974e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0382447, Final residual = 3.89052e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24082, pressure gradient = -199.282
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.37307e-05, global = -1.35897e-11, cumulative = -4.13789e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00132515, Final residual = 2.00985e-09, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.24082, pressure gradient = -199.28
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.73104e-05, global = -1.36925e-11, cumulative = -4.15158e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.58118e-21, No Iterations 1
+bounding omega, min: -4.36459e+28 max: 9.86331e+32 average: 4.81724e+27
+DILUPBiCGStab:  Solving for k, Initial residual = 0.196251, Final residual = 4.62882e-13, No Iterations 1
+bounding k, min: -0.00574793 max: 0.0119772 average: 0.000354849
+ExecutionTime = 45.63 s  ClockTime = 45 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00696782 max: 0.074698
+deltaT = 8.08024e-06
+Time = 0.00106273
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0958573, Final residual = 1.86798e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.29877, Final residual = 7.28628e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00343703, Final residual = 8.28819e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23765, pressure gradient = 181.618
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0239161, Final residual = 1.34101e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0871487, Final residual = 9.83119e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23765, pressure gradient = 180.416
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 7.92625e-06, global = -1.42106e-11, cumulative = -4.16579e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000452424, Final residual = 2.46445e-09, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23765, pressure gradient = 180.414
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 6.36694e-06, global = -1.44523e-11, cumulative = -4.18024e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 6.05399e-33, No Iterations 1
+bounding omega, min: -2.38069e+30 max: 1.28635e+27 average: -1.31425e+25
+DILUPBiCGStab:  Solving for k, Initial residual = 0.295358, Final residual = 2.31251e-13, No Iterations 1
+bounding k, min: -0.000576313 max: 0.0115895 average: 0.000363975
+ExecutionTime = 46.81 s  ClockTime = 46 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00970842 max: 0.0535355
+deltaT = 9.43864e-06
+Time = 0.00107217
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.123461, Final residual = 4.19614e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.21535, Final residual = 7.92044e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00427911, Final residual = 9.32002e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24092, pressure gradient = -164.643
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0471407, Final residual = 3.62476e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.18675, Final residual = 0.000277704, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24092, pressure gradient = -163.369
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.93791e-05, global = -1.55454e-11, cumulative = -4.19579e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00354698, Final residual = 1.37292e-08, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.24092, pressure gradient = -163.366
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.95978e-05, global = -1.58045e-11, cumulative = -4.21159e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.03319e-18, No Iterations 1
+bounding omega, min: -7.57713e+24 max: 3.72613e+33 average: 1.89205e+28
+DILUPBiCGStab:  Solving for k, Initial residual = 0.241011, Final residual = 4.00588e-14, No Iterations 1
+bounding k, min: -0.000790954 max: 0.0092901 average: 0.000353681
+ExecutionTime = 47.98 s  ClockTime = 48 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0130615 max: 0.0178508
+deltaT = 1.13264e-05
+Time = 0.0010835
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.185035, Final residual = 6.79235e-12, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.137466, Final residual = 8.26745e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00578599, Final residual = 2.25425e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23744, pressure gradient = 145.002
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0756569, Final residual = 9.83745e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.568762, Final residual = 0.00210071, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23745, pressure gradient = 143.646
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.32087e-05, global = -1.75564e-11, cumulative = -4.22915e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00864212, Final residual = 3.46389e-08, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.23745, pressure gradient = 143.642
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.81217e-05, global = -1.84387e-11, cumulative = -4.24759e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 4.0802e-28, No Iterations 1
+bounding omega, min: -2.35964e+30 max: 2.09373e+33 average: 1.16197e+28
+DILUPBiCGStab:  Solving for k, Initial residual = 0.293338, Final residual = 4.51466e-13, No Iterations 1
+bounding k, min: -0.000835949 max: 0.0071172 average: 0.000349469
+ExecutionTime = 49.19 s  ClockTime = 49 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0165713 max: 0.0773386
+deltaT = 1.26444e-05
+Time = 0.00109614
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.259248, Final residual = 1.33738e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0551047, Final residual = 3.89139e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00672884, Final residual = 2.96999e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24107, pressure gradient = -136.567
+DILUPBiCGStab:  Solving for h, Initial residual = 0.107976, Final residual = 2.06468e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.965965, Final residual = 0.00622694, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.24106, pressure gradient = -135.188
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 6.27365e-05, global = -2.03537e-11, cumulative = -4.26794e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.0101945, Final residual = 8.82176e-08, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.24106, pressure gradient = -135.184
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.71467e-05, global = -2.11847e-11, cumulative = -4.28913e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.54845e-18, No Iterations 1
+bounding omega, min: -8.59028e+30 max: 2.01834e+29 average: -4.07845e+25
+DILUPBiCGStab:  Solving for k, Initial residual = 0.406512, Final residual = 2.33018e-13, No Iterations 1
+bounding k, min: -0.000845544 max: 0.00872625 average: 0.000359449
+ExecutionTime = 50.37 s  ClockTime = 50 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0175 max: 0.21575
+deltaT = 5.27461e-06
+Time = 0.00110142
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.123502, Final residual = 1.73555e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0500646, Final residual = 4.9197e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00285991, Final residual = 2.35376e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23856, pressure gradient = 115.212
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0461681, Final residual = 1.76983e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.235259, Final residual = 1.76918e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23856, pressure gradient = 114.697
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.08995e-05, global = -9.27685e-12, cumulative = -4.2984e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000737857, Final residual = 1.60165e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23856, pressure gradient = 114.696
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 8.84013e-06, global = -9.2043e-12, cumulative = -4.30761e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.68384e-21, No Iterations 1
+bounding omega, min: -1.56581e+33 max: 1.02916e+33 average: -2.71602e+27
+DILUPBiCGStab:  Solving for k, Initial residual = 0.306583, Final residual = 4.38143e-14, No Iterations 1
+bounding k, min: -0.000472447 max: 0.0115778 average: 0.000348994
+ExecutionTime = 51.56 s  ClockTime = 51 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00687783 max: 0.0907371
+deltaT = 5.23176e-06
+Time = 0.00110665
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.117214, Final residual = 1.55726e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.08333, Final residual = 9.22392e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00279467, Final residual = 2.16887e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23985, pressure gradient = -110.287
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0451719, Final residual = 1.85135e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.155672, Final residual = 1.24587e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23985, pressure gradient = -109.825
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.23965e-05, global = -9.58521e-12, cumulative = -4.31719e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000610352, Final residual = 8.0034e-08, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23985, pressure gradient = -109.824
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.00384e-05, global = -9.43605e-12, cumulative = -4.32663e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.10169e-20, No Iterations 1
+bounding omega, min: -2.48758e+35 max: 3.59267e+42 average: 1.76207e+37
+DILUPBiCGStab:  Solving for k, Initial residual = 0.179727, Final residual = 4.94997e-13, No Iterations 1
+bounding k, min: -0.00209366 max: 0.0148961 average: 0.000345378
+ExecutionTime = 52.7 s  ClockTime = 52 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00627926 max: 0.082787
+deltaT = 5.68758e-06
+Time = 0.00111234
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.116969, Final residual = 1.73896e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.147942, Final residual = 2.06721e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00285055, Final residual = 2.67821e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23864, pressure gradient = 93.9829
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0417732, Final residual = 2.15718e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.120375, Final residual = 1.48482e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23864, pressure gradient = 93.5319
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.12829e-05, global = -1.08342e-11, cumulative = -4.33746e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000774657, Final residual = 1.39413e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23864, pressure gradient = 93.5312
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.72719e-05, global = -1.07793e-11, cumulative = -4.34824e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.54952e-23, No Iterations 1
+bounding omega, min: -1.89953e+33 max: 6.24619e+31 average: -9.29386e+27
+DILUPBiCGStab:  Solving for k, Initial residual = 0.19497, Final residual = 1.94975e-13, No Iterations 1
+bounding k, min: -0.000640697 max: 0.0188071 average: 0.00035477
+ExecutionTime = 53.85 s  ClockTime = 54 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00603409 max: 0.0911762
+deltaT = 5.61421e-06
+Time = 0.00111795
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.104206, Final residual = 1.41226e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.264206, Final residual = 3.66438e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00270058, Final residual = 2.15381e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23977, pressure gradient = -87.9707
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0350326, Final residual = 1.75008e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.080389, Final residual = 7.75844e-06, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23977, pressure gradient = -87.5694
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.16025e-05, global = -1.13379e-11, cumulative = -4.35958e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00037468, Final residual = 1.84532e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23977, pressure gradient = -87.5688
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 9.4108e-06, global = -1.12016e-11, cumulative = -4.37078e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 3.31314e-19, No Iterations 1
+bounding omega, min: -1.10357e+41 max: 5.75851e+37 average: -5.5231e+35
+DILUPBiCGStab:  Solving for k, Initial residual = 0.287135, Final residual = 5.15326e-14, No Iterations 1
+bounding k, min: -0.00108771 max: 0.0232099 average: 0.000345326
+ExecutionTime = 55.02 s  ClockTime = 55 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00502599 max: 0.0892898
+deltaT = 5.65887e-06
+Time = 0.00112361
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0956579, Final residual = 1.24829e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.49309, Final residual = 6.91416e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0026415, Final residual = 1.86188e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23875, pressure gradient = 78.4848
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0251611, Final residual = 1.22176e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0542853, Final residual = 6.14572e-06, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23876, pressure gradient = 78.1195
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.06589e-05, global = -1.2082e-11, cumulative = -4.38287e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000846078, Final residual = 1.6555e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23876, pressure gradient = 78.119
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.48553e-05, global = -1.19567e-11, cumulative = -4.39482e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.71415e-19, No Iterations 1
+bounding omega, min: -9.09486e+38 max: 1.04511e+43 average: 5.32338e+37
+DILUPBiCGStab:  Solving for k, Initial residual = 0.282087, Final residual = 3.77948e-13, No Iterations 1
+bounding k, min: -0.000635924 max: 0.027722 average: 0.000343558
+ExecutionTime = 56.2 s  ClockTime = 56 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00393417 max: 0.083384
+deltaT = 6.10786e-06
+Time = 0.00112972
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0968963, Final residual = 1.40992e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.631462, Final residual = 9.99227e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00281291, Final residual = 1.61787e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.2397, pressure gradient = -68.3531
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0185873, Final residual = 8.08735e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0355239, Final residual = 2.04629e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.2397, pressure gradient = -68.0004
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.75652e-05, global = -1.38886e-11, cumulative = -4.40871e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00048505, Final residual = 5.29116e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.2397, pressure gradient = -67.9997
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.41753e-05, global = -1.3643e-11, cumulative = -4.42235e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.91411e-25, No Iterations 1
+bounding omega, min: -4.42392e+36 max: 2.56284e+37 average: 1.97824e+32
+DILUPBiCGStab:  Solving for k, Initial residual = 0.283236, Final residual = 1.12844e-13, No Iterations 1
+bounding k, min: -0.000717345 max: 0.031968 average: 0.00034927
+ExecutionTime = 57.37 s  ClockTime = 57 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00293447 max: 0.0794214
+deltaT = 6.8e-06
+Time = 0.00113652
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.106087, Final residual = 1.9601e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.533816, Final residual = 9.55734e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00339989, Final residual = 1.38341e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23876, pressure gradient = 67.2324
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0117422, Final residual = 6.16941e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0391332, Final residual = 6.23864e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23877, pressure gradient = 66.8755
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.43716e-05, global = -1.62705e-11, cumulative = -4.43862e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00113739, Final residual = 1.36794e-09, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23877, pressure gradient = 66.875
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.59391e-05, global = -1.60006e-11, cumulative = -4.45462e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 9.86808e-21, No Iterations 1
+bounding omega, min: -2.05956e+43 max: 4.92217e+42 average: -1.01172e+38
+DILUPBiCGStab:  Solving for k, Initial residual = 0.296893, Final residual = 4.13208e-14, No Iterations 1
+bounding k, min: -0.00064614 max: 0.0352382 average: 0.000340842
+ExecutionTime = 58.54 s  ClockTime = 58 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0031736 max: 0.0722331
+deltaT = 7.64726e-06
+Time = 0.00114417
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.123583, Final residual = 3.21336e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.462394, Final residual = 8.95657e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00456915, Final residual = 2.89425e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23971, pressure gradient = -51.6788
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0172094, Final residual = 2.11013e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0508601, Final residual = 0.000154361, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23971, pressure gradient = -51.3207
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.5104e-05, global = -1.92664e-11, cumulative = -4.47389e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.000532184, Final residual = 5.33829e-09, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23971, pressure gradient = -51.3198
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.1913e-05, global = -1.86936e-11, cumulative = -4.49258e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.78828e-26, No Iterations 1
+bounding omega, min: -3.49137e+38 max: 9.00885e+47 average: 4.61717e+42
+DILUPBiCGStab:  Solving for k, Initial residual = 0.283402, Final residual = 2.97262e-13, No Iterations 1
+bounding k, min: -0.00142664 max: 0.03613 average: 0.00034078
+ExecutionTime = 59.73 s  ClockTime = 59 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00531908 max: 0.0529799
+deltaT = 8.94634e-06
+Time = 0.00115311
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.156978, Final residual = 6.52901e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.42941, Final residual = 9.24946e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00632778, Final residual = 7.7776e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23874, pressure gradient = 57.9734
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0286156, Final residual = 5.77733e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.0743857, Final residual = 0.00034777, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23874, pressure gradient = 57.5963
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 5.91012e-05, global = -2.31815e-11, cumulative = -4.51577e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00189375, Final residual = 8.85622e-09, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23874, pressure gradient = 57.5954
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.75471e-05, global = -2.22882e-11, cumulative = -4.53805e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.04766e-21, No Iterations 1
+bounding omega, min: -1.76298e+39 max: 4.59044e+46 average: 2.31654e+41
+DILUPBiCGStab:  Solving for k, Initial residual = 0.38065, Final residual = 9.14601e-14, No Iterations 1
+bounding k, min: -0.00134938 max: 0.0323996 average: 0.000342779
+ExecutionTime = 60.91 s  ClockTime = 61 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0113884 max: 0.0247308
+deltaT = 1.07356e-05
+Time = 0.00116385
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.211429, Final residual = 6.96089e-12, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.419914, Final residual = 6.08549e-12, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00864803, Final residual = 2.18713e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23978, pressure gradient = -40.3835
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0459412, Final residual = 1.24626e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.14749, Final residual = 0.00050154, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23978, pressure gradient = -39.968
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 5.09905e-05, global = -2.75129e-11, cumulative = -4.56557e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00201611, Final residual = 5.26666e-09, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.23978, pressure gradient = -39.9667
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.13038e-05, global = -2.56327e-11, cumulative = -4.5912e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 6.35337e-18, No Iterations 1
+bounding omega, min: -2.49643e+48 max: 9.60716e+53 average: 4.79844e+48
+DILUPBiCGStab:  Solving for k, Initial residual = 0.346788, Final residual = 1.05945e-13, No Iterations 1
+bounding k, min: -0.0251305 max: 0.0229554 average: 0.000333351
+ExecutionTime = 62.1 s  ClockTime = 62 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0209845 max: 0.0708474
+deltaT = 1.20994e-05
+Time = 0.00117595
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.263536, Final residual = 1.31476e-11, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.362046, Final residual = 9.51137e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0109778, Final residual = 4.38647e-10, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23871, pressure gradient = 45.1344
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0745838, Final residual = 1.85309e-09, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.295363, Final residual = 7.60778e-05, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23871, pressure gradient = 44.7409
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 0.000117694, global = -2.70134e-11, cumulative = -4.61821e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00778157, Final residual = 7.79576e-08, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.23871, pressure gradient = 44.74
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 9.52646e-05, global = -2.54978e-11, cumulative = -4.64371e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 8.68061e-35, No Iterations 1
+bounding omega, min: -1.6529e+46 max: 8.89504e+49 average: 4.92341e+44
+DILUPBiCGStab:  Solving for k, Initial residual = 0.367544, Final residual = 4.52521e-13, No Iterations 1
+bounding k, min: -0.00186161 max: 0.0173603 average: 0.000335397
+ExecutionTime = 63.32 s  ClockTime = 63 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0298652 max: 0.219697
+deltaT = 4.95657e-06
+Time = 0.0011809
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.117871, Final residual = 1.73162e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0851517, Final residual = 4.98887e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00483812, Final residual = 3.73676e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23946, pressure gradient = -39.9429
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0369436, Final residual = 9.3659e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.258114, Final residual = 4.75269e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23946, pressure gradient = -39.7761
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.24999e-05, global = -9.24857e-12, cumulative = -4.65296e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00360629, Final residual = 4.25197e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23946, pressure gradient = -39.7759
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.62865e-05, global = -9.50839e-12, cumulative = -4.66247e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 5.75793e-20, No Iterations 1
+bounding omega, min: -7.08137e+53 max: 7.88726e+59 average: 3.89541e+54
+DILUPBiCGStab:  Solving for k, Initial residual = 0.448654, Final residual = 1.91725e-13, No Iterations 1
+bounding k, min: -0.000683222 max: 0.0272892 average: 0.000332454
+ExecutionTime = 64.51 s  ClockTime = 64 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0126594 max: 0.0927709
+deltaT = 4.80853e-06
+Time = 0.00118571
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.111049, Final residual = 1.55059e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0541846, Final residual = 4.47203e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00475727, Final residual = 3.61541e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23907, pressure gradient = 28.5262
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0450611, Final residual = 6.90177e-11, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.424099, Final residual = 7.3081e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23907, pressure gradient = 28.4016
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.17861e-05, global = -7.84032e-12, cumulative = -4.67031e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00301494, Final residual = 2.20678e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23907, pressure gradient = 28.4015
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.76291e-05, global = -8.30152e-12, cumulative = -4.67861e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.21793e-16, No Iterations 1
+bounding omega, min: -2.41985e+49 max: 6.72187e+57 average: 3.29469e+52
+DILUPBiCGStab:  Solving for k, Initial residual = 0.265499, Final residual = 2.33267e-13, No Iterations 1
+bounding k, min: -0.00183524 max: 0.0163494 average: 0.000327916
+ExecutionTime = 65.66 s  ClockTime = 65 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0121716 max: 0.084683
+deltaT = 5.11044e-06
+Time = 0.00119082
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.111761, Final residual = 1.80321e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0910465, Final residual = 6.99896e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00496125, Final residual = 4.5378e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23942, pressure gradient = -37.8151
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0598795, Final residual = 1.32103e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.384991, Final residual = 9.50449e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23941, pressure gradient = -37.6796
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.23366e-05, global = -7.24943e-12, cumulative = -4.68586e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00105363, Final residual = 1.70223e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23941, pressure gradient = -37.6794
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 9.98056e-06, global = -7.69263e-12, cumulative = -4.69355e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 1.14745e-17, No Iterations 1
+bounding omega, min: -1.40871e+60 max: 2.70258e+63 average: 2.39306e+58
+DILUPBiCGStab:  Solving for k, Initial residual = 0.22616, Final residual = 3.31722e-13, No Iterations 1
+bounding k, min: -0.00951314 max: 0.0161904 average: 0.000331894
+ExecutionTime = 66.86 s  ClockTime = 67 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.0121412 max: 0.0932485
+deltaT = 4.93241e-06
+Time = 0.00119576
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.102893, Final residual = 1.58661e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.150011, Final residual = 8.28263e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00469003, Final residual = 4.13759e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.2391, pressure gradient = 16.958
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0662301, Final residual = 1.47643e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.228502, Final residual = 4.04673e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.2391, pressure gradient = 16.8574
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.35468e-05, global = -5.95579e-12, cumulative = -4.69951e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00122856, Final residual = 1.24387e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.2391, pressure gradient = 16.8572
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.91005e-05, global = -6.40708e-12, cumulative = -4.70592e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 4.97137e-17, No Iterations 1
+bounding omega, min: -3.02362e+71 max: 6.76145e+75 average: 3.31166e+70
+DILUPBiCGStab:  Solving for k, Initial residual = 0.375292, Final residual = 1.27339e-12, No Iterations 1
+bounding k, min: -0.000865018 max: 0.0271274 average: 0.000328044
+ExecutionTime = 68.03 s  ClockTime = 68 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.01036 max: 0.0915024
+deltaT = 4.85142e-06
+Time = 0.00120061
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0979445, Final residual = 1.44437e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.176663, Final residual = 8.4501e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00461848, Final residual = 3.91058e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23937, pressure gradient = -35.7937
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0621265, Final residual = 1.44205e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.164517, Final residual = 1.60321e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23937, pressure gradient = -35.6904
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.00466e-05, global = -4.92662e-12, cumulative = -4.71084e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00120249, Final residual = 1.15369e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23937, pressure gradient = -35.6903
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.43696e-05, global = -5.35264e-12, cumulative = -4.71619e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 3.07886e-29, No Iterations 1
+bounding omega, min: -2.30517e+70 max: 3.91923e+79 average: 1.93206e+74
+DILUPBiCGStab:  Solving for k, Initial residual = 0.349446, Final residual = 2.35014e-13, No Iterations 1
+bounding k, min: -0.000805587 max: 0.0217907 average: 0.000325208
+ExecutionTime = 69.2 s  ClockTime = 69 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00839581 max: 0.0857319
+deltaT = 5.09295e-06
+Time = 0.0012057
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.100793, Final residual = 1.61092e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.180486, Final residual = 8.71855e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00494801, Final residual = 4.33415e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23912, pressure gradient = 9.31448
+DILUPBiCGStab:  Solving for h, Initial residual = 0.059185, Final residual = 1.78044e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.14422, Final residual = 9.14994e-06, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23912, pressure gradient = 9.23015
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.89062e-05, global = -4.20609e-12, cumulative = -4.7204e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00165937, Final residual = 2.59756e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23912, pressure gradient = 9.22986
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.96135e-05, global = -4.70652e-12, cumulative = -4.72511e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 1, Final residual = 2.98872e-26, No Iterations 1
+bounding omega, min: -2.00664e+78 max: 5.3428e+90 average: 2.61076e+85
+DILUPBiCGStab:  Solving for k, Initial residual = 0.312715, Final residual = 3.99592e-13, No Iterations 1
+bounding k, min: -0.00159204 max: 0.0242526 average: 0.000327236
+ExecutionTime = 70.39 s  ClockTime = 70 s
+
+fieldAverage fieldAverage1 write:
+    Calculating averages
+
+Courant Number mean: 0.00696159 max: 0.0818732
+deltaT = 5.59848e-06
+Time = 0.0012113
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.113957, Final residual = 2.28119e-09, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.169879, Final residual = 8.95762e-10, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00552593, Final residual = 5.41374e-11, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23936, pressure gradient = -31.144
+DILUPBiCGStab:  Solving for h, Initial residual = 0.057266, Final residual = 3.20163e-10, No Iterations 1
+GAMG:  Solving for p_rgh, Initial residual = 0.140439, Final residual = 4.51582e-05, No Iterations 1
+Pressure gradient source: uncorrected Ubar = 1.23936, pressure gradient = -31.0514
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 5.77626e-05, global = -3.77584e-12, cumulative = -4.72888e-09
+GAMG:  Solving for p_rgh, Initial residual = 0.00164294, Final residual = 7.06108e-10, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.23936, pressure gradient = -31.0515
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.66913e-05, global = -4.29617e-12, cumulative = -4.73318e-09
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code.. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[38377,1],2]
+  Exit code:    145
+--------------------------------------------------------------------------

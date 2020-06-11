@@ -1,0 +1,111 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1906 OPENFOAM=1906
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar -cellDist
+Date   : Jun 05 2020
+Time   : 13:52:35
+Host   : DESKTOP-9S60IA4
+PID    : 8655
+I/O    : uncollated
+Case   : /home/theodore_ong/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/AirIDDESCase
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh region0
+
+Create mesh
+
+Calculating distribution of cells
+Selecting decompositionMethod simple [4]
+
+Finished decomposition in 0.06 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 51192
+    Number of faces shared with processor 1 = 2844
+    Number of faces shared with processor 1 = 1422
+    Number of faces shared with processor 1 = 1422
+    Number of faces shared with processor 2 = 2844
+    Number of faces shared with processor 2 = 1422
+    Number of faces shared with processor 2 = 1422
+    Number of processor patches = 6
+    Number of processor faces = 11376
+    Number of boundary faces = 648
+
+Processor 1
+    Number of cells = 51192
+    Number of faces shared with processor 0 = 2844
+    Number of faces shared with processor 0 = 1422
+    Number of faces shared with processor 0 = 1422
+    Number of faces shared with processor 3 = 2844
+    Number of faces shared with processor 3 = 1422
+    Number of faces shared with processor 3 = 1422
+    Number of processor patches = 6
+    Number of processor faces = 11376
+    Number of boundary faces = 648
+
+Processor 2
+    Number of cells = 51192
+    Number of faces shared with processor 0 = 2844
+    Number of faces shared with processor 0 = 1422
+    Number of faces shared with processor 0 = 1422
+    Number of faces shared with processor 3 = 2844
+    Number of faces shared with processor 3 = 1422
+    Number of faces shared with processor 3 = 1422
+    Number of processor patches = 6
+    Number of processor faces = 11376
+    Number of boundary faces = 648
+
+Processor 3
+    Number of cells = 51192
+    Number of faces shared with processor 1 = 2844
+    Number of faces shared with processor 1 = 1422
+    Number of faces shared with processor 1 = 1422
+    Number of faces shared with processor 2 = 2844
+    Number of faces shared with processor 2 = 1422
+    Number of faces shared with processor 2 = 1422
+    Number of processor patches = 6
+    Number of processor faces = 11376
+    Number of boundary faces = 648
+
+Number of processor faces = 22752
+Max number of cells = 51192 (0% above average 51192)
+Max number of processor patches = 6 (0% above average 6)
+Max number of faces between processors = 11376 (0% above average 11376)
+
+
+Wrote decomposition as volScalarField to cellDist for visualization.
+
+Wrote decomposition to "/home/theodore_ong/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/AirIDDESCase/constant/cellDecomposition" for use in manual decomposition.
+Time = 0
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+
+End
+

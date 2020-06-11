@@ -43,8 +43,8 @@ vertices
 
 blocks
 (
-    hex (0 1 3 2 6 7 9 8) (40 79 40) simpleGrading (1 4 1)
-    hex (2 3 5 4 8 9 11 10) (40 79 40) simpleGrading (1 0.25 1)
+    hex (0 1 3 2 6 7 9 8) (36 79 36) simpleGrading (1 4 1)
+    hex (2 3 5 4 8 9 11 10) (36 79 36) simpleGrading (1 0.25 1)
     // how simple grading works: in positive y direction
     // as y increases, cell gets bigger according to expansion ratio
     // such that largest cell at Ymax is 4x smallest cell at Ymin
