@@ -18,7 +18,6 @@ FoamFile
 U
 {
     internalField   uniform (0 0 -0.22618);
-    zero   uniform (0 0 0); // define a zero field
     boundaryField
     {
             ".*"
@@ -37,8 +36,8 @@ U
 	    leftInOut_periodic0
 	    {
 	        type            inletOutlet;
-		inletValue	$zero;
-		value		$zero;
+		inletValue	$internalField; // reverse flow value
+                value      	$internalField; // initial value
 	    }
 	    leftInOut_periodic1
 	    {
@@ -52,8 +51,9 @@ U
 	    rightInOut_periodic0
 	    {
                 type            inletOutlet;
-                inletValue      $zero;  // reverse flow value
-                value           $zero;  // initial value
+                inletValue      $internalField;
+                value      	$internalField;
+
 	    }
 	    rightInOut_periodic1
 	    {

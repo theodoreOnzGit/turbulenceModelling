@@ -9,9 +9,9 @@ Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : changeDictionary
 Date   : Jun 16 2020
-Time   : 18:13:14
+Time   : 18:36:51
 Host   : Desktop-9S60IA4
-PID    : 27723
+PID    : 28392
 I/O    : uncollated
 Case   : /media/theodore/Shared/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/Expt_kOmegaIDDESCaseEntranceBC
 nProcs : 1
@@ -24,40 +24,57 @@ Create time
 
 Create mesh for time = 0
 
---> FOAM Warning : 
-    From function bool Foam::IOobject::readHeader(Foam::Istream&)
-    in file db/IOobject/IOobjectReadHeader.C at line 118
-    Reading "/media/theodore/Shared/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/Expt_kOmegaIDDESCaseEntranceBC/system/changeDictionaryDict" at line 1
-    First token could not be read or is not the keyword 'FoamFile'
+Read dictionary changeDictionaryDict with replacements for dictionaries 9(U T omega k p p_rgh nut epsilon alphat)
+Reading polyMesh/boundary file to extract patch names
+Loaded dictionary boundary with entries 10(leftWall rightWall leftSides_periodic0 leftSides_periodic1 rightSides_periodic0 rightSides_periodic1 leftInOut_periodic0 leftInOut_periodic1 rightInOut_periodic0 rightInOut_periodic1)
+Extracted patch groups:
+    group cyclic with patches 4(leftSides_periodic0 leftSides_periodic1 rightSides_periodic0 rightSides_periodic1)
+    group wall with patches 2(leftWall rightWall)
+Replacing entries in dictionary U
+Loading dictionary U
+Loaded dictionary U with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict U
+Replacing entries in dictionary T
+Loading dictionary T
+Loaded dictionary T with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict T
+Replacing entries in dictionary omega
+Loading dictionary omega
+Loaded dictionary omega with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict omega
+Replacing entries in dictionary k
+Loading dictionary k
+Loaded dictionary k with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict k
+Replacing entries in dictionary p
+Loading dictionary p
+Loaded dictionary p with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict p
+Replacing entries in dictionary p_rgh
+Loading dictionary p_rgh
+Loaded dictionary p_rgh with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict p_rgh
+Replacing entries in dictionary nut
+Loading dictionary nut
+Loaded dictionary nut with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict nut
+Replacing entries in dictionary epsilon
+Loading dictionary epsilon
+Loaded dictionary epsilon with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict epsilon
+Replacing entries in dictionary alphat
+Loading dictionary alphat
+Loaded dictionary alphat with entries 3(dimensions internalField boundaryField)
+Merging entries from 2(internalField boundaryField)
+Writing modified fieldDict alphat
 
-Check header is of the form:
-
-/*--------------------------------*- C++ -*----------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1912                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
-FoamFile
-{
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    location    "system";
-    object      changeDictionaryDict;
-}
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-
-
---> FOAM FATAL IO ERROR: 
-problem while reading header for object changeDictionaryDict
-
-file: /media/theodore/Shared/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/Expt_kOmegaIDDESCaseEntranceBC/system/changeDictionaryDict at line 1.
-
-    From function virtual Foam::autoPtr<Foam::ISstream> Foam::fileOperations::uncollatedFileOperation::readStream(Foam::regIOobject&, const Foam::fileName&, const Foam::word&, bool) const
-    in file global/fileOperations/uncollatedFileOperation/uncollatedFileOperation.C at line 569.
-
-FOAM exiting
+End
 

@@ -48,8 +48,8 @@ boundaryField
     leftInOut_periodic0
     {
         type            inletOutlet;
-        inletValue      $zero;
-        value           $zero;
+        inletValue      $internalField;
+        value           $internalField;
     }
     leftInOut_periodic1
     {
@@ -62,8 +62,8 @@ boundaryField
     rightInOut_periodic0
     {
         type            inletOutlet;
-        inletValue      $zero;
-        value           $zero;
+        inletValue      $internalField;
+        value           $internalField;
     }
     rightInOut_periodic1
     {
@@ -74,8 +74,6 @@ boundaryField
         value           $internalField;
     }
 }
-
-zero            uniform ( 0 0 0 );
 
 
 // ************************************************************************* //
