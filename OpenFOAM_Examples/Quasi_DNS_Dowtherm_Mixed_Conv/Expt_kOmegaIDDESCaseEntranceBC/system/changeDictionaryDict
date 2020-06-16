@@ -1,0 +1,507 @@
+*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// define a uniform zero field
+
+zero 	uniform (0 0 0);
+
+
+U
+{
+    internalField   uniform (0 0 -0.22618);
+
+    boundaryField
+    {
+            ".*"
+	    {
+                type            cyclic;
+	    }
+	    leftWall
+	    {
+	        type            noSlip;
+
+	    }
+	    rightWall
+	    {
+	        type            noSlip;
+	    }
+	    leftInOut_periodic0
+	    {
+	        type            inletOutlet;
+		inletValue	$zero;
+		value		$zero;
+	    }
+	    leftInOut_periodic1
+	    {
+	        type            turbulentDFSEMInlet;
+		delta		2;
+		nCellPerEddy	1;
+		mapMethod	nearestCell;
+		value		$internalField;
+	    }
+
+	    rightInOut_periodic0
+	    {
+                type            inletOutlet;
+                inletValue      $zero;  // reverse flow value
+                value           $zero;  // initial value
+	    }
+	    rightInOut_periodic1
+	    {
+                type            turbulentDFSEMInlet;
+                delta           2;
+                nCellPerEddy    1;
+                mapMethod       nearestCell;
+                value           $internalField;
+	    }
+     }	
+}
+
+T
+{
+    internalField   uniform 343;
+
+    boundaryField
+    {
+        ".*"
+        {
+            type            cyclic;
+        }
+        leftWall
+        {
+            type            fixedValue;
+            value           uniform 373; // ~100 degC
+
+        }
+        rightWall
+        {
+	    type            fixedValue;
+	    value           uniform 313; // ~40 degC
+        }
+
+        leftInOut_periodic0
+        {
+	    type            inletOutlet;
+	    inletValue      $internalField;  // reverse flow value
+	    value           $internalField;  // initial value
+	}
+        leftInOut_periodic1
+        {
+            type            fixedValue;
+	    value	    $internalField;
+        }
+
+        rightInOut_periodic0
+        {   
+            type            inletOutlet;
+            inletValue      $internalField;  // reverse flow value
+            value           $internalField;  // initial value
+        }
+
+        rightInOut_periodic1
+        {
+            type            fixedValue;
+            value           $internalField;
+        }
+
+
+
+    }
+}
+
+omega
+{
+    internalField   uniform 0.12;
+
+    boundaryField
+    {
+        ".*"
+        {
+            type            cyclic;
+        }
+        leftWall
+        {
+        type            omegaWallFunction;
+        value           uniform 0.12;
+
+        }
+        rightWall
+        {
+        type            omegaWallFunction;
+        value           uniform 0.12;
+
+        }
+
+        leftInOut_periodic0
+        {   
+            type            inletOutlet;
+            inletValue      $internalField;  // reverse flow value
+            value           $internalField;  // initial value
+        }
+
+        leftInOut_periodic1
+        {
+            type            turbulentMixingLengthFrequencyInlet;
+	    mixingLength    0.0021; // 0.07*0.03 (7% channel width)
+            value           $internalField;
+        }
+
+        rightInOut_periodic0
+        {   
+            type            inletOutlet;
+            inletValue      $internalField;  // reverse flow value
+            value           $internalField;  // initial value
+        }
+
+        rightInOut_periodic1
+        {
+            type            turbulentMixingLengthFrequencyInlet;
+            mixingLength    0.0021; // 0.07*0.03 (7% channel width)
+            value           $internalField;
+
+        }
+    }
+}
+
+k
+{
+    internalField   uniform 3.75e-4;
+
+    boundaryField
+    {
+        ".*"
+        {
+            type            cyclic;
+        }
+        leftWall
+        {
+        type            kqRWallFunction;
+        value           $internalField;
+
+        }
+        rightWall
+        {
+        type            kqRWallFunction;
+        value           $internalField;
+
+        }
+
+        leftInOut_periodic0
+        {   
+            type            inletOutlet;
+            inletValue      $internalField;  // reverse flow value
+            value           $internalField;  // initial value
+        }
+
+        leftInOut_periodic1
+        {
+            type            turbulentIntensityKineticEnergyInlet;
+            intensity    0.01; // 1% intensity, 5% for RANS and assume 80% LES resolution
+            value           $internalField;
+        }
+
+        rightInOut_periodic0
+        {   
+            type            inletOutlet;
+            inletValue      $internalField;  // reverse flow value
+            value           $internalField;  // initial value
+        }
+
+        rightInOut_periodic1
+        {
+            type            turbulentIntensityKineticEnergyInlet;
+            intensity    0.01; // 1% intensity, 5% for RANS and assume 80% LES resolution
+            value           $internalField;
+
+        }
+
+}
+
+p
+{
+    internalField   uniform 1e5;
+
+    boundaryField
+    {
+        ".*"
+        {
+            type            cyclic;
+        }
+        leftWall
+        {
+            type            calculated;
+            value           $internalField;
+
+        }
+        rightWall
+        {
+            type            calculated;
+            value           $internalField;
+
+        }
+
+        leftInOut_periodic0
+        {
+            type            calculated;
+            value           $internalField;
+        }
+        leftInOut_periodic1
+        {
+            type            calculated;
+            value           $internalField;
+        }
+
+        rightInOut_periodic0
+        {
+            type            calculated;
+            value           $internalField;
+        }
+        rightInOut_periodic1
+        {
+            type            calculated;
+            value           $internalField;
+        }
+    }
+
+}
+
+p_rgh
+{
+    internalField   uniform 1e5;
+
+    boundaryField
+    {
+        ".*"
+        {
+            type            cyclic;
+        }
+        leftWall
+        {
+        type            fixedFluxPressure;
+        value           uniform 1e5;
+
+        }
+        rightWall
+        {
+        type            fixedFluxPressure;
+        value           uniform 1e5;
+
+        }
+
+        leftInOut_periodic0
+        {
+        type            fixedValue;
+        value           uniform 1e5;
+
+        }
+        leftInOut_periodic1
+        {
+        type            fixedFluxPressure;
+        value           uniform 1e5;
+
+        }
+
+        rightInOut_periodic0
+        {
+        type            fixedValue;
+        value           uniform 1e5;
+
+        }
+        rightInOut_periodic1
+        {
+        type            fixedFluxPressure;
+        value           uniform 1e5;
+
+        }
+    }
+
+}
+
+nut
+
+{
+internalField 	uniform 0;
+
+    boundaryField
+    {
+        ".*"
+        {
+            type            cyclic;
+        }
+        leftWall
+        {
+        type            nutUWallFunction;
+        value           uniform 0;
+
+        }
+        rightWall
+        {
+        type            nutUWallFunction;
+        value           uniform 0;
+
+        }
+
+        leftInOut_periodic0
+        {
+        type            calculated;
+        value           uniform 1e-8;
+
+        }
+        leftInOut_periodic1
+        {
+        type            calculated;
+        value           uniform 1e-8;
+        }
+
+        rightInOut_periodic0
+        {
+        type            calculated;
+        value           uniform 1e-8;
+        }
+
+        rightInOut_periodic1
+        {
+        type            calculated;
+        value           uniform 1e-8;
+        }
+    }
+
+
+
+}
+
+
+epsilon
+
+{
+
+internalField 	uniform   4e-06;
+
+
+    boundaryField
+    {
+        ".*"
+        {
+            type            cyclic;
+        }
+        leftWall
+        {
+        type            epsilonWallFunction;
+        value           uniform 4e-06;
+
+        }
+        rightWall
+        {
+        type            epsilonWallFunction;
+        value           uniform 4e-06;
+
+        }
+
+        leftInOut_periodic0
+        {   
+            type            inletOutlet;
+            inletValue      $internalField;  // reverse flow value
+            value           $internalField;  // initial value
+        }
+
+        leftInOut_periodic1
+        {
+        type            turbulentMixingLengthDissipationRateInlet;
+	mixingLength    0.0021; // 0.07*0.03 (7% channel width)
+        value           $internalField;
+        }
+
+        rightInOut_periodic0
+        {   
+            type            inletOutlet;
+            inletValue      $internalField;  // reverse flow value
+            value           $internalField;  // initial value
+        }
+
+        rightInOut_periodic1
+        {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0021; // 0.07*0.03 (7% channel width)
+        value           $internalField;
+
+	}
+    }
+
+}
+
+alphat
+
+
+{
+
+internalField 	uniform   0;
+
+
+    boundaryField
+    {
+        ".*"
+        {
+            type            cyclic;
+        }
+        leftWall
+        {
+        type            compressible::alphatWallFunction;
+        Prt             0.85;
+        value           uniform 0;
+
+        }
+        rightWall
+        {
+        type            compressible::alphatWallFunction;
+        Prt             0.85;
+        value           uniform 0;
+
+        }
+
+        leftInOut_periodic0
+        {
+            type            calculated;
+            value           $internalField;
+   
+        }
+
+        leftInOut_periodic1
+        {
+            type            calculated;
+            value           $internalField;
+
+        }
+
+        rightInOut_periodic0
+        { 
+            type            calculated;
+            value           $internalField;
+  
+        }
+
+        rightInOut_periodic1
+        {
+            type            calculated;
+            value           $internalField;
+
+	}
+    }
+
+}
+
+
+// ************************************************************************* //
