@@ -1,4 +1,4 @@
-*--------------------------------*- C++ -*----------------------------------*\
+/*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
 |  \\    /   O peration     | Version:  v1912                                 |
@@ -15,15 +15,10 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 
-// define a uniform zero field
-
-zero 	uniform (0 0 0);
-
-
 U
 {
     internalField   uniform (0 0 -0.22618);
-
+    zero   uniform (0 0 0); // define a zero field
     boundaryField
     {
             ".*"
@@ -123,6 +118,7 @@ T
     }
 }
 
+
 omega
 {
     internalField   uniform 0.12;
@@ -177,6 +173,7 @@ omega
     }
 }
 
+
 k
 {
     internalField   uniform 3.75e-4;
@@ -229,6 +226,7 @@ k
 
         }
 
+    }
 }
 
 p
@@ -331,6 +329,8 @@ p_rgh
 
 }
 
+
+
 nut
 
 {
@@ -383,7 +383,6 @@ internalField 	uniform 0;
 
 
 }
-
 
 epsilon
 
@@ -442,6 +441,7 @@ internalField 	uniform   4e-06;
     }
 
 }
+
 
 alphat
 
@@ -502,6 +502,5 @@ internalField 	uniform   0;
     }
 
 }
-
 
 // ************************************************************************* //

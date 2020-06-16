@@ -1,0 +1,63 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : changeDictionary
+Date   : Jun 16 2020
+Time   : 18:13:14
+Host   : Desktop-9S60IA4
+PID    : 27723
+I/O    : uncollated
+Case   : /media/theodore/Shared/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/Expt_kOmegaIDDESCaseEntranceBC
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+--> FOAM Warning : 
+    From function bool Foam::IOobject::readHeader(Foam::Istream&)
+    in file db/IOobject/IOobjectReadHeader.C at line 118
+    Reading "/media/theodore/Shared/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/Expt_kOmegaIDDESCaseEntranceBC/system/changeDictionaryDict" at line 1
+    First token could not be read or is not the keyword 'FoamFile'
+
+Check header is of the form:
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+
+--> FOAM FATAL IO ERROR: 
+problem while reading header for object changeDictionaryDict
+
+file: /media/theodore/Shared/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/Expt_kOmegaIDDESCaseEntranceBC/system/changeDictionaryDict at line 1.
+
+    From function virtual Foam::autoPtr<Foam::ISstream> Foam::fileOperations::uncollatedFileOperation::readStream(Foam::regIOobject&, const Foam::fileName&, const Foam::word&, bool) const
+    in file global/fileOperations/uncollatedFileOperation/uncollatedFileOperation.C at line 569.
+
+FOAM exiting
+
