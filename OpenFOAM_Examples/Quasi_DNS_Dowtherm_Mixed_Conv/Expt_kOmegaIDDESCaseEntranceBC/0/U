@@ -51,14 +51,19 @@ boundaryField
         inletValue      $internalField;
         value           $internalField;
     }
+
     leftInOut_periodic1
     {
+
         type            turbulentDFSEMInlet;
         delta           2;
         nCellPerEddy    1;
         mapMethod       nearestCell;
         value           $internalField;
+
     }
+
+/*
     rightInOut_periodic0
     {
         type            inletOutlet;
@@ -73,6 +78,7 @@ boundaryField
         mapMethod       nearestCell;
         value           $internalField;
     }
+*/
 }
 
 
