@@ -1,0 +1,146 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+14
+(
+    leftWall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          216;
+        startFace       97428;
+    }
+    rightWall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          216;
+        startFace       97644;
+    }
+    leftSides_periodic0
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          0;
+        startFace       97860;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  leftSides_periodic1;
+    }
+    leftSides_periodic1
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          0;
+        startFace       97860;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  leftSides_periodic0;
+    }
+    rightSides_periodic0
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          0;
+        startFace       97860;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  rightSides_periodic1;
+    }
+    rightSides_periodic1
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          0;
+        startFace       97860;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  rightSides_periodic0;
+    }
+    leftInOut_periodic0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       97860;
+    }
+    leftInOut_periodic1
+    {
+        type            patch;
+        nFaces          948;
+        startFace       97860;
+    }
+    rightInOut_periodic0
+    {
+        type            patch;
+        nFaces          0;
+        startFace       98808;
+    }
+    rightInOut_periodic1
+    {
+        type            patch;
+        nFaces          948;
+        startFace       98808;
+    }
+    procBoundary3to0
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          1896;
+        startFace       99756;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    0;
+    }
+    procBoundary3to4
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          2844;
+        startFace       101652;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    4;
+    }
+    procBoundary3to5throughleftSides_periodic1
+    {
+        type            processorCyclic;
+        inGroups        1(processorCyclic);
+        nFaces          1422;
+        startFace       104496;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    5;
+        referPatch      leftSides_periodic1;
+    }
+    procBoundary3to5throughrightSides_periodic1
+    {
+        type            processorCyclic;
+        inGroups        1(processorCyclic);
+        nFaces          1422;
+        startFace       105918;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        3;
+        neighbProcNo    5;
+        referPatch      rightSides_periodic1;
+    }
+)
+
+// ************************************************************************* //
