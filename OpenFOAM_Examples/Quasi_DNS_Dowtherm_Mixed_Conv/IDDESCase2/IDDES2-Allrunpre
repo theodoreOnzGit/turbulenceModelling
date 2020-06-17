@@ -15,7 +15,7 @@ sed -i 's/endTime         300/endTime         200/' system/controlDict
 
 rm -rf 200
 
-runApplication mapFields ../IDDESCase1/. -consistent 
+runApplication mapFields ../Stable_IDDESCase1/. -consistent 
 #- Restore controlDict for buoyantPimpleFoam
 sed -i 's/startFrom       startTime/startFrom       latestTime/' system/controlDict
 sed -i 's/endTime         200/endTime         300/' system/controlDict
