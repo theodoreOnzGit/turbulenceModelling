@@ -1,0 +1,73 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "98/uniform/functionObjects";
+    object      functionObjectProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fieldAverage1
+{
+    U
+    {
+        totalIter       22833;
+        totalTime       98;
+    }
+    p
+    {
+        totalIter       22833;
+        totalTime       98;
+    }
+}
+
+results
+{
+    avg_ValuesRight
+    {
+        scalar
+        {
+            areaAverage(rightWall,heatTransferCoeff(T)) -251.6135777473357;
+            areaAverage(rightWall,T) 313.0000000000001;
+        }
+        vector
+        {
+            areaAverage(rightWall,wallShearStress) ( -0.000828732 1.00234e-06 0.30899 );
+        }
+    }
+    avg_ValuesLeft
+    {
+        scalar
+        {
+            areaAverage(leftWall,heatTransferCoeff(T)) -251.468249468673;
+            areaAverage(leftWall,T) 372.9999999999998;
+        }
+        vector
+        {
+            areaAverage(leftWall,wallShearStress) ( 0.00129915 0.00202758 0.262138 );
+        }
+    }
+}
+
+temp_and_velocity
+{
+    T
+    {
+        file            "<case>/postProcessing/temp_and_velocity/98/uniformPoints_T.xy";
+    }
+    U
+    {
+        file            "<case>/postProcessing/temp_and_velocity/98/uniformPoints_U.xy";
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,22 @@
+#!/bin/bash
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+#run the RANS case first
+# ./RANS-Allrun
+
+
+#- Run the mapfields and BlockMesh
+mv ./constant/polyMesh ./constant/polyMeshRANS
+runApplication -s IDDES2 blockMesh -dict ./system/blockMeshDictIDDES
+#- Prep controlDict for mapFields
+sed -i 's/startFrom       latestTime/startFrom       startTime/' system/controlDict
+sed -i 's/endTime         300/endTime         200/' system/controlDict
+
+rm -rf 200
+
+runApplication mapFields ../IDDESCase1/. -consistent 
+#- Restore controlDict for buoyantPimpleFoam
+sed -i 's/startFrom       startTime/startFrom       latestTime/' system/controlDict
+sed -i 's/endTime         200/endTime         300/' system/controlDict
+#------------------------------------------------------------------------------

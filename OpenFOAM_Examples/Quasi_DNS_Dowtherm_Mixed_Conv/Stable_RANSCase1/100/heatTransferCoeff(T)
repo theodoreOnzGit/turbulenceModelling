@@ -1,0 +1,110 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "100";
+    object      heatTransferCoeff(T);
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 -1 0 0 0];
+
+
+internalField   uniform 0;
+
+boundaryField
+{
+    leftWall
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+16
+(
+-297.582
+-169.009
+-268.742
+-197.651
+-244.844
+-213.465
+-213.483
+-230.121
+-270.981
+-263.547
+-255.492
+-282.041
+-305.803
+-226.507
+-267.808
+-240.929
+)
+;
+    }
+    rightWall
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+16
+(
+-139.855
+-236.076
+-184.899
+-233.108
+-294.997
+-256.617
+-338.742
+-262.875
+-396.223
+-242.43
+-431.971
+-243.179
+-274.874
+-212.255
+-320.68
+-208.569
+)
+;
+    }
+    leftSides_periodic0
+    {
+        type            cyclic;
+    }
+    leftSides_periodic1
+    {
+        type            cyclic;
+    }
+    rightSides_periodic0
+    {
+        type            cyclic;
+    }
+    rightSides_periodic1
+    {
+        type            cyclic;
+    }
+    leftInOut_periodic0
+    {
+        type            cyclic;
+    }
+    leftInOut_periodic1
+    {
+        type            cyclic;
+    }
+    rightInOut_periodic0
+    {
+        type            cyclic;
+    }
+    rightInOut_periodic1
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "98.8";
+    object      wallShearStress;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    leftWall
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    rightWall
+    {
+        type            calculated;
+        value           nonuniform List<vector> 8((0.00907194 0.0014148 0.364715) (-0.00283477 0.000267063 0.155692) (-0.0675532 -0.00172328 0.410568) (0.0180596 5.31753e-05 0.283726) (-0.0122636 0.00147431 0.479448) (0.00750518 0.000260391 0.319615) (0.0393116 -0.00181581 0.348352) (-0.0128538 7.27245e-05 0.156661));
+    }
+    leftSides_periodic0
+    {
+        type            cyclic;
+    }
+    leftSides_periodic1
+    {
+        type            cyclic;
+    }
+    rightSides_periodic0
+    {
+        type            cyclic;
+    }
+    rightSides_periodic1
+    {
+        type            cyclic;
+    }
+    leftInOut_periodic0
+    {
+        type            cyclic;
+    }
+    leftInOut_periodic1
+    {
+        type            cyclic;
+    }
+    rightInOut_periodic0
+    {
+        type            cyclic;
+    }
+    rightInOut_periodic1
+    {
+        type            cyclic;
+    }
+    procBoundary3to1
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+    procBoundary3to1throughrightSides_periodic1
+    {
+        type            processorCyclic;
+        value           uniform (0 0 0);
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+    procBoundary3to2throughrightInOut_periodic0
+    {
+        type            processorCyclic;
+        value           uniform (0 0 0);
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,73 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "98.8/uniform/functionObjects";
+    object      functionObjectProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fieldAverage1
+{
+    U
+    {
+        totalIter       23010;
+        totalTime       98.80000000000001;
+    }
+    p
+    {
+        totalIter       23010;
+        totalTime       98.80000000000001;
+    }
+}
+
+results
+{
+    avg_ValuesRight
+    {
+        scalar
+        {
+            areaAverage(rightWall,heatTransferCoeff(T)) -253.8141750337651;
+            areaAverage(rightWall,T) 313.0000000000001;
+        }
+        vector
+        {
+            areaAverage(rightWall,wallShearStress) ( -0.00335678 -3.3551e-05 0.306567 );
+        }
+    }
+    avg_ValuesLeft
+    {
+        scalar
+        {
+            areaAverage(leftWall,heatTransferCoeff(T)) -247.7030774218989;
+            areaAverage(leftWall,T) 372.9999999999998;
+        }
+        vector
+        {
+            areaAverage(leftWall,wallShearStress) ( 2.65482e-05 0.000787197 0.263246 );
+        }
+    }
+}
+
+temp_and_velocity
+{
+    T
+    {
+        file            "<case>/postProcessing/temp_and_velocity/98.8/uniformPoints_T.xy";
+    }
+    U
+    {
+        file            "<case>/postProcessing/temp_and_velocity/98.8/uniformPoints_U.xy";
+    }
+}
+
+
+// ************************************************************************* //

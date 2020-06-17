@@ -1,0 +1,107 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1906 OPENFOAM=1906
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar -cellDist
+Date   : Jun 12 2020
+Time   : 13:46:52
+Host   : DESKTOP-9S60IA4
+PID    : 3241
+I/O    : uncollated
+Case   : /home/theodore_ong/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/RANSCase1
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh region0
+
+Create mesh
+
+Calculating distribution of cells
+Selecting decompositionMethod simple [4]
+
+Finished decomposition in 0 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 630
+    Number of faces shared with processor 1 = 11
+    Number of faces shared with processor 1 = 1
+    Number of faces shared with processor 2 = 316
+    Number of faces shared with processor 2 = 314
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 322
+
+Processor 1
+    Number of cells = 634
+    Number of faces shared with processor 0 = 11
+    Number of faces shared with processor 0 = 1
+    Number of faces shared with processor 2 = 2
+    Number of faces shared with processor 2 = 2
+    Number of faces shared with processor 3 = 316
+    Number of faces shared with processor 3 = 314
+    Number of processor patches = 6
+    Number of processor faces = 646
+    Number of boundary faces = 324
+
+Processor 2
+    Number of cells = 634
+    Number of faces shared with processor 0 = 316
+    Number of faces shared with processor 0 = 314
+    Number of faces shared with processor 1 = 2
+    Number of faces shared with processor 1 = 2
+    Number of faces shared with processor 3 = 11
+    Number of faces shared with processor 3 = 1
+    Number of processor patches = 6
+    Number of processor faces = 646
+    Number of boundary faces = 324
+
+Processor 3
+    Number of cells = 630
+    Number of faces shared with processor 1 = 316
+    Number of faces shared with processor 1 = 314
+    Number of faces shared with processor 2 = 11
+    Number of faces shared with processor 2 = 1
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 322
+
+Number of processor faces = 1288
+Max number of cells = 634 (0.316456% above average 632)
+Max number of processor patches = 6 (20% above average 5)
+Max number of faces between processors = 646 (0.310559% above average 644)
+
+
+Wrote decomposition as volScalarField to cellDist for visualization.
+
+Wrote decomposition to "/home/theodore_ong/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/RANSCase1/constant/cellDecomposition" for use in manual decomposition.
+Time = 0
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+
+End
+
