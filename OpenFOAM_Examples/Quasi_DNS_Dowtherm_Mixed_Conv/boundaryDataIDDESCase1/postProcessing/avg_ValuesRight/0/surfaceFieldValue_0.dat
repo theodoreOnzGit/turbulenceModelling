@@ -1,6 +1,0 @@
-# Region type : patch rightWall
-# Faces       : 256
-# Area        : 5.400000e-03
-# Scale factor: 1.000000e+00
-# Time        	areaAverage(heatTransferCoeff(T))	areaAverage(wallShearStress)	areaAverage(T)
-0             	-6.352782e+03	(0.000000e+00 0.000000e+00 0.000000e+00)	3.130000e+02
