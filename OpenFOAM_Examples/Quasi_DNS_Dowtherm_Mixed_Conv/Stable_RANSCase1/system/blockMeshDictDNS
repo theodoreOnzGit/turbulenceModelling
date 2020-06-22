@@ -97,26 +97,26 @@ boundary
 
     leftInOut_periodic0
     {
-        type            patch;
+        type            cyclic;
         neighbourPatch  leftInOut_periodic1;
         faces           ((0 2 3 1)); // z=0 plane
     }
     leftInOut_periodic1
     {
-        type            patch;
+        type            cyclic;
         neighbourPatch  leftInOut_periodic0;
         faces           ((6 7 9 8)); // z=12 plane
 
     }
     rightInOut_periodic0
     {
-        type            patch;
+        type            cyclic;
         neighbourPatch  rightInOut_periodic1;
         faces           ((2 4 5 3)); // z=0 plane
     }
     rightInOut_periodic1
     {
-        type            patch;
+        type            cyclic;
         neighbourPatch  rightInOut_periodic0;
         faces           ((8 9 11 10)); // z=12 plane
     }
