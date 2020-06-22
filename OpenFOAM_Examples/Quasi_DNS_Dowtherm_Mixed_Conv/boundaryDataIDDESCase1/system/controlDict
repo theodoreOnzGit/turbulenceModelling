@@ -209,6 +209,49 @@ functions
 	}	
 
 
+
+   boundaryData_test
+	{
+	type surfaces;
+	libs            ("libsampling.so");
+
+	interpolationScheme cellPointFace;
+
+	surfaceFormat 	raw;
+	executeControl  writeTime;
+        writeControl    writeTime;
+	
+	surfaces
+	(
+
+	boundaryInlet // samples data across a line at cell faces
+    	{
+        type            patch;
+        patches         ("rightInOut_periodic1" "leftInOut_periodic1")   ;
+    	interpolate	true;
+	surfaceFormat	boundaryData;
+	}
+
+        boundaryOutlet // samples data uniformly across a line based on no. of points
+        {
+        type            patch;
+        patches         ("rightInOut_periodic0" "leftInOut_periodic0")   ;
+        interpolate     true;
+        surfaceFormat   boundaryData;
+
+        }
+
+	);
+
+
+	fields
+	(
+	T
+	U
+	);
+	}	
+
+
 }
 
 // ************************************************************************* //
