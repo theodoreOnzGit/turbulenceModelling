@@ -238,18 +238,36 @@ functions
 	surfaces
 	(
 
-	boundaryInlet // samples data across a line at cell faces
+	rightInOut_periodic1 
     	{
         type            patch;
-        patches         ("rightInOut_periodic1" "leftInOut_periodic1")   ;
+        patches         ("rightInOut_periodic1")   ;
     	interpolate	true;
 	surfaceFormat	boundaryData;
 	}
 
-        boundaryOutlet // samples data uniformly across a line based on no. of points
+	leftInOut_periodic1// samples data across a line at cell faces
+    	{
+        type            patch;
+        patches         ("leftInOut_periodic1")   ;
+    	interpolate	true;
+	surfaceFormat	boundaryData;
+	}
+
+        rightInOut_periodic0 // samples data uniformly across a line based on no. of points
         {
         type            patch;
-        patches         ("rightInOut_periodic0" "leftInOut_periodic0")   ;
+        patches         ("rightInOut_periodic0")   ;
+        interpolate     true;
+        surfaceFormat   boundaryData;
+
+        }
+
+
+        leftInOut_periodic0 // samples data uniformly across a line based on no. of points
+        {
+        type            patch;
+        patches         ("leftInOut_periodic0")   ;
         interpolate     true;
         surfaceFormat   boundaryData;
 
