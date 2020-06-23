@@ -1,0 +1,98 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+
+internalField   uniform (0 0 -0.22618);
+
+boundaryField
+{
+    leftWall
+    {
+        type            noSlip;
+    }
+    rightWall
+    {
+        type            noSlip;
+    }
+    leftSides_periodic0
+    {
+        type            cyclic;
+    }
+    leftSides_periodic1
+    {
+        type            cyclic;
+    }
+    rightSides_periodic0
+    {
+        type            cyclic;
+    }
+    rightSides_periodic1
+    {
+        type            cyclic;
+    }
+    leftInOut_periodic0
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 -0.22618);
+        value           uniform (0 0 -0.22618);
+    }
+    leftInOut_periodic1
+    {
+        type            turbulentDFSEMInlet;
+        value           nonuniform 0();
+        delta           2;
+        nCellPerEddy    1;
+    }
+    rightInOut_periodic0
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 -0.22618);
+        value           uniform (0 0 -0.22618);
+    }
+    rightInOut_periodic1
+    {
+        type            turbulentDFSEMInlet;
+        value           nonuniform 0();
+        delta           2;
+        nCellPerEddy    1;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform (0 0 -0.22618);
+    }
+    procBoundary0to2throughleftSides_periodic1
+    {
+        type            processorCyclic;
+        value           uniform (0 0 -0.22618);
+    }
+    procBoundary0to2throughrightSides_periodic1
+    {
+        type            processorCyclic;
+        value           uniform (0 0 -0.22618);
+    }
+    procBoundary0to3
+    {
+        type            processor;
+        value           uniform (0 0 -0.22618);
+    }
+}
+
+
+// ************************************************************************* //

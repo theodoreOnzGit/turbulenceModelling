@@ -1,0 +1,94 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+
+internalField   uniform 100000;
+
+boundaryField
+{
+    leftWall
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    rightWall
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    leftSides_periodic0
+    {
+        type            cyclic;
+    }
+    leftSides_periodic1
+    {
+        type            cyclic;
+    }
+    rightSides_periodic0
+    {
+        type            cyclic;
+    }
+    rightSides_periodic1
+    {
+        type            cyclic;
+    }
+    leftInOut_periodic0
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    leftInOut_periodic1
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    rightInOut_periodic0
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    rightInOut_periodic1
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+    procBoundary0to2throughleftSides_periodic1
+    {
+        type            processorCyclic;
+        value           uniform 100000;
+    }
+    procBoundary0to2throughrightSides_periodic1
+    {
+        type            processorCyclic;
+        value           uniform 100000;
+    }
+    procBoundary0to3
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,7 @@
+# Region type : patch leftWall
+# Faces       : 256
+# Area        : 5.400000e-03
+# Scale factor: 1.000000e+00
+# Time        	areaAverage(heatTransferCoeff(T))	areaAverage(wallShearStress)	areaAverage(T)
+0             	-5.614130e+03	(0.000000e+00 0.000000e+00 0.000000e+00)	3.730000e+02
+200           	-5.614130e+03	(-4.071656e-06 1.614140e-04 -2.614835e-01)	3.730000e+02
