@@ -1,0 +1,37 @@
+#/ normally the postprocessing outputs will be named turbulenceProperties:R, but boundaryData requires the file R to be read, hence need to rename fil
+
+cp leftInOut_periodic0/200/turbulenceProperties\:R leftInOut_periodic0/0/R
+cp leftInOut_periodic0/200/turbulenceProperties\:L leftInOut_periodic0/0/L
+cp leftInOut_periodic0/200/turbulenceProperties\:I leftInOut_periodic0/0/I
+cp leftInOut_periodic0/200/turbulenceProperties\:alphat leftInOut_periodic0/0/alphat
+cp leftInOut_periodic0/200/U leftInOut_periodic0/0/U
+cp leftInOut_periodic0/200/T leftInOut_periodic0/0/T
+
+
+
+
+cp leftInOut_periodic1/200/turbulenceProperties\:R leftInOut_periodic1/0/R
+cp leftInOut_periodic1/200/turbulenceProperties\:L leftInOut_periodic1/0/L
+cp leftInOut_periodic1/200/turbulenceProperties\:I leftInOut_periodic1/0/I
+cp leftInOut_periodic1/200/turbulenceProperties\:alphat leftInOut_periodic1/0/alphat
+cp leftInOut_periodic1/200/U leftInOut_periodic1/0/U
+cp leftInOut_periodic1/200/T leftInOut_periodic1/0/T
+
+cp rightInOut_periodic0/200/turbulenceProperties\:R leftInOut_periodic1/0/R
+cp rightInOut_periodic0/200/turbulenceProperties\:L leftInOut_periodic1/0/L
+cp rightInOut_periodic0/200/turbulenceProperties\:I leftInOut_periodic1/0/I
+cp rightInOut_periodic0/200/turbulenceProperties\:alphat leftInOut_periodic1/0/alphat
+cp rightInOut_periodic0/200/U rightInOut_periodic0/0/U
+cp rightInOut_periodic0/200/T rightInOut_periodic0/0/T
+
+
+
+cp rightInOut_periodic1/200/turbulenceProperties\:R leftInOut_periodic1/0/R
+cp rightInOut_periodic1/200/turbulenceProperties\:L leftInOut_periodic1/0/L
+cp rightInOut_periodic1/200/turbulenceProperties\:I leftInOut_periodic1/0/I
+cp rightInOut_periodic1/200/turbulenceProperties\:alphat leftInOut_periodic1/0/alphat
+cp rightInOut_periodic0/200/U rightInOut_periodic0/0/U
+cp rightInOut_periodic0/200/T rightInOut_periodic0/0/T
+
+
+
