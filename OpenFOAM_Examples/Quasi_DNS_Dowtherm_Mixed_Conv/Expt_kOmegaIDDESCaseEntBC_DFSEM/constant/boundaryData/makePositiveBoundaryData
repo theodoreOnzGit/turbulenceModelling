@@ -1,0 +1,4 @@
+sed -i "s/-[0-9].[0-9][0-9][0-9]*/0/g" leftInOut_periodic0/0/R
+sed -i "s/-[0-9].[0-9][0-9][0-9]*/0/g" leftInOut_periodic1/0/R
+sed -i "s/-[0-9].[0-9][0-9][0-9]*/0/g" rightInOut_periodic0/0/R
+sed -i "s/-[0-9].[0-9][0-9][0-9]*/0/g" rightInOut_periodic1/0/R
