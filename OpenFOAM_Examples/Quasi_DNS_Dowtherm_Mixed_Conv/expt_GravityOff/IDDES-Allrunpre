@@ -1,0 +1,10 @@
+#!/bin/bash
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+#- BlockMesh
+runApplication -s kOmegaIDDES blockMesh -dict ./system/blockMeshDictIDDES
+cp -ar 0.orig 0
+runApplication changeDictionary
+
+#------------------------------------------------------------------------------
