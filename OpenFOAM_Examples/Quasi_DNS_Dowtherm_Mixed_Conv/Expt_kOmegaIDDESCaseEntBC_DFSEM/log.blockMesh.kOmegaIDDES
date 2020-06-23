@@ -9,9 +9,9 @@ Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : blockMesh -dict ./system/blockMeshDictIDDES
 Date   : Jun 23 2020
-Time   : 13:05:27
+Time   : 15:12:12
 Host   : Desktop-9S60IA4
-PID    : 13306
+PID    : 16336
 I/O    : uncollated
 Case   : /media/theodore/Shared/GitHub_software/turbulenceModelling/OpenFOAM_Examples/Quasi_DNS_Dowtherm_Mixed_Conv/Expt_kOmegaIDDESCaseEntBC_DFSEM
 nProcs : 1
@@ -41,7 +41,6 @@ Check topology
 
 Creating block offsets
 Creating merge list...
-Deleting polyMesh directory "constant/polyMesh"
 
 Creating polyMesh from blockMesh
 Creating patches
