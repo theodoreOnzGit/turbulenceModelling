@@ -210,6 +210,20 @@ functions
 
 
 
+   generate_TurbulenceFields
+	{
+	type		turbulenceFields; // this generates turbulence data for DFSEM Inlet
+	libs            ("libfieldFunctionObjects.so");
+	
+	fields		(R L I nuTilda omega epsilon k mut alphat); // note buoyantPimpleFoam is considered compressible
+	executeControl  writeTime;
+        writeControl    writeTime;
+	
+	
+
+	}
+
+
    boundaryData_test
 	{
 	type surfaces;
@@ -248,6 +262,10 @@ functions
 	(
 	T
 	U
+	turbulenceProperties:R
+	turbulenceProperties:L
+	turbulenceProperties:I
+	turbulenceProperties:alphat
 	);
 	}	
 
