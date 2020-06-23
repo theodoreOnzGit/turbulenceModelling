@@ -54,10 +54,13 @@ boundaryField
     leftInOut_periodic1
     {
         type            turbulentDFSEMInlet;
-        delta           2;
+        delta           0.075;
         nCellPerEddy    1;
         mapMethod       nearestCell;
         value           $internalField;
+
+	// random uniform values if u need to insert something
+	// R		uniform (0.000225636 -2.9519e-08 7.88961e-08 0.000240406 8.97758e-05 0.000221303);
     }
     rightInOut_periodic0
     {
@@ -68,7 +71,7 @@ boundaryField
     rightInOut_periodic1
     {
         type            turbulentDFSEMInlet;
-        delta           2;
+        delta           0.075;
         nCellPerEddy    1;
         mapMethod       nearestCell;
         value           $internalField;
