@@ -1,0 +1,525 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Komen2014}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,uniquepart=base,hash=4916e65599abc8effc25525bd87924db}{%
+           family={Komen},
+           familyi={K\bibinitperiod},
+           given={Ed},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=35231550f0a9ccdd16a51820e1262cac}{%
+           family={Shams},
+           familyi={S\bibinitperiod},
+           given={Afaque},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=72379bbe676e3336859518d2fbf39d0e}{%
+           family={Camilo},
+           familyi={C\bibinitperiod},
+           given={Leonardo},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=e689c221bb258e943310e1bbdb45e1df}{%
+           family={Koren},
+           familyi={K\bibinitperiod},
+           given={Barry},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{204df5c78feb4da5d0944f95e12cfe05}
+      \strng{fullhash}{0cf6d951e66e511d86a481270dcf20bb}
+      \strng{bibnamehash}{0cf6d951e66e511d86a481270dcf20bb}
+      \strng{authorbibnamehash}{0cf6d951e66e511d86a481270dcf20bb}
+      \strng{authornamehash}{204df5c78feb4da5d0944f95e12cfe05}
+      \strng{authorfullhash}{0cf6d951e66e511d86a481270dcf20bb}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Experimental limitations for certain nuclear reactor safety applications have pushed forward the demand for high fidelity DNS reference solutions for complex geometric configurations such as a T-junction or a spherical pebble bed. The application of traditional high-order DNS codes is limited to simple flow domains such as a periodic box or channel. As a possibility to create reference DNS solutions for more complex geometries, we have assessed the (quasi-)DNS capabilities of the OpenFOAM finite volume CFD solver for both structured hexahedral meshes and arbitrary polyhedral meshes. The feasibility of (quasi-)DNS analyses on polyhedral grids is of main interest, since this may offer the possibility to significantly expand the availability of (quasi-)DNS-quality data on arbitrarily complex geometries. In order to have a basis for the considered assessment, the mutual differences between generally recognized reference DNS data bases for turbulent channel and pipe flows are determined first. Subsequently, the differences between these reference DNS solutions and the present OpenFOAM (quasi-)DNS solutions are quantified for the considered mesh types. We use an existing finite volume CFD method and well known turbulent channel and pipe flow DNS reference cases for the assessments in this paper. New in this paper are the application of this CFD method to (quasi-)DNS analyses using arbitrary polyhedral meshes, and the quantification of respectively the mutual differences between generally recognized reference DNS data bases and the differences between the obtained OpenFOAM (quasi-)DNS data and these reference DNS data bases. Based on the presented assessment, it is observed that the differences between the OpenFOAM solutions and the considered reference DNS solutions are practically the same as the mutual differences between these reference DNS solutions when structured hexahedral meshes are used. Furthermore, it is observed that the differences as obtained by OpenFOAM on extruded polyhedral meshes are practically the same as those obtained for the structured hexahedral meshes. In contrast, the full polyhedral mesh shows somewhat larger differences near the peaks in the rms velocity profiles, whereas the differences in the bulk flow are again practically the same as those for the hexahedral grids.}
+      \field{issn}{0045-7930}
+      \field{journaltitle}{Computers {\&} Fluids}
+      \field{title}{{Quasi-DNS capabilities of OpenFOAM for different mesh types}}
+      \field{volume}{96}
+      \field{year}{2014}
+      \field{pages}{87\bibrangedash 104}
+      \range{pages}{18}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.compfluid.2014.02.013
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S0045793014000760
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0045793014000760
+      \endverb
+      \keyw{Channel flows,Complex geometries,DNS,OpenFOAM,Polyhedral cells}
+    \endentry
+    \entry{Ding2020}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=d2420d158d8f85968b7bc1b0c16aae6c}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={Puxian},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=61104835260c3ffec8b2bfe93505f618}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Shuangfeng},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=ee3f7d7b96add98106db907e189d6c13}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4d302101a592dbadfe954c5a75fb969b}
+      \strng{fullhash}{b9f64d80bd05bac60004626e0dc13d8a}
+      \strng{bibnamehash}{b9f64d80bd05bac60004626e0dc13d8a}
+      \strng{authorbibnamehash}{b9f64d80bd05bac60004626e0dc13d8a}
+      \strng{authornamehash}{4d302101a592dbadfe954c5a75fb969b}
+      \strng{authorfullhash}{b9f64d80bd05bac60004626e0dc13d8a}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Two Delayed-Detached Eddy Simulation (DDES) models, and a Large-Eddy Simulation (LES) model are used to investigate the turbulent flows and mixed convection between a hot plate and a cold plate via the software FLUENT. The two DDES models include Production-limited DDES (PL-DDES) and Improved DDES (IDDES) models. The Wall-Adapting Local Eddy-Viscosity (WALE) model is the used LES model. The numerical computations are performed at Reynolds number Reb = 4494 and different Richardson numbers Ri = 0.025, 0.048, 0.1. The comparing data is from the Direct Numerical Simulation (DNS) at Reb = 4494 and Ri = 0.048. The comparison reveals that the two DDES models have better performance in predicting time-averaged parameters than the WALE model in the aiding flow. The best predicted time-averaged results are obtained by the PL-DDES model in the opposing flow. Furthermore, the results of different Ri obtained by the PL-DDES model agree well with the DNS data.}
+      \field{issn}{1004-9541}
+      \field{journaltitle}{Chinese Journal of Chemical Engineering}
+      \field{number}{1}
+      \field{title}{{Numerical study on turbulent mixed convection in a vertical plane channel using hybrid RANS/LES and LES models}}
+      \field{volume}{28}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.cjche.2019.04.007
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S1004954118318056
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S1004954118318056
+      \endverb
+      \keyw{Hybrid RANS/LES model,PL-DDES model,Turbulent mixed convection,Vertical plane channel,WALE model}
+    \endentry
+    \entry{Spalart2006}{article}{}
+      \name{author}{6}{}{%
+        {{uniquename=0,uniquepart=base,hash=239f75f00e34093a2d226918277ccb57}{%
+           family={Spalart},
+           familyi={S\bibinitperiod},
+           given={Philippe\bibnamedelima R},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=f56b95544bfd37db89b00d9d08302b9d}{%
+           family={Deck},
+           familyi={D\bibinitperiod},
+           given={Shur},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=debd293e0285efad986a78e69b35fa91}{%
+           family={Shur},
+           familyi={S\bibinitperiod},
+           given={Michael\bibnamedelima L},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=f950f694a89f52dee78934b3802fee39}{%
+           family={Squires},
+           familyi={S\bibinitperiod},
+           given={Kyle\bibnamedelima D},
+           giveni={K\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=884bc9fdd18314273e0ca1dde53090ac}{%
+           family={Strelets},
+           familyi={S\bibinitperiod},
+           given={M\bibnamedelima Kh},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=a400b59833f7b179e28d3e8cb04cbd32}{%
+           family={Travin},
+           familyi={T\bibinitperiod},
+           given={Andrei},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5544e102ed2b5a328c4db7165f4185fc}
+      \strng{fullhash}{b4e86e1e377fbd27138ecd43c061299d}
+      \strng{bibnamehash}{b4e86e1e377fbd27138ecd43c061299d}
+      \strng{authorbibnamehash}{b4e86e1e377fbd27138ecd43c061299d}
+      \strng{authornamehash}{5544e102ed2b5a328c4db7165f4185fc}
+      \strng{authorfullhash}{b4e86e1e377fbd27138ecd43c061299d}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0935-4964}
+      \field{journaltitle}{Theoretical and computational fluid dynamics}
+      \field{number}{3}
+      \field{title}{{A new version of detached-eddy simulation, resistant to ambiguous grid densities}}
+      \field{volume}{20}
+      \field{year}{2006}
+      \field{pages}{181}
+      \range{pages}{1}
+    \endentry
+    \entry{Tu2018}{book}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=df3f547ca99da34bea1c10403c6c9041}{%
+           family={Tu},
+           familyi={T\bibinitperiod},
+           given={Jiyuan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=0a7fb9449041ac8089bb0539e6c99d93}{%
+           family={Yeoh},
+           familyi={Y\bibinitperiod},
+           given={Guan\bibnamedelima Heng},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=90bbb8aeb7d41aed23ae025a8cf521d9}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Chaoqun},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Butterworth-Heinemann}%
+      }
+      \strng{namehash}{b792736ac8519d2cedf5c5a20f7108b7}
+      \strng{fullhash}{76364df7399398c5f53da07544ec00fe}
+      \strng{bibnamehash}{76364df7399398c5f53da07544ec00fe}
+      \strng{authorbibnamehash}{76364df7399398c5f53da07544ec00fe}
+      \strng{authornamehash}{b792736ac8519d2cedf5c5a20f7108b7}
+      \strng{authorfullhash}{76364df7399398c5f53da07544ec00fe}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0081012446}
+      \field{title}{{Computational fluid dynamics: a practical approach}}
+      \field{year}{2018}
+    \endentry
+    \entry{Scheel2013}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=c6eb94378afe884deeb25a5b1a7c1add}{%
+           family={Scheel},
+           familyi={S\bibinitperiod},
+           given={Janet\bibnamedelima D},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=da948d1b89f66223488394863a605c13}{%
+           family={Emran},
+           familyi={E\bibinitperiod},
+           given={Mohammad\bibnamedelima S},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=21704a1b3e31ea442920df78dc2442d0}{%
+           family={Schumacher},
+           familyi={S\bibinitperiod},
+           given={J{ö}rg},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{0deb6a6a1d6f8ab72b8917b577495bba}
+      \strng{fullhash}{45fe50dc415e40c4ce640b49121e237d}
+      \strng{bibnamehash}{45fe50dc415e40c4ce640b49121e237d}
+      \strng{authorbibnamehash}{45fe50dc415e40c4ce640b49121e237d}
+      \strng{authornamehash}{0deb6a6a1d6f8ab72b8917b577495bba}
+      \strng{authorfullhash}{45fe50dc415e40c4ce640b49121e237d}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1367-2630}
+      \field{journaltitle}{New Journal of Physics}
+      \field{number}{11}
+      \field{title}{{Resolving the fine-scale structure in turbulent Rayleigh–B{é}nard convection}}
+      \field{volume}{15}
+      \field{year}{2013}
+      \field{pages}{113063}
+      \range{pages}{1}
+    \endentry
+    \entry{Bejan2013}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=7d350b65b8e0120c000d6d000e5e880f}{%
+           family={Bejan},
+           familyi={B\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {John wiley {\&} sons}%
+      }
+      \strng{namehash}{7d350b65b8e0120c000d6d000e5e880f}
+      \strng{fullhash}{7d350b65b8e0120c000d6d000e5e880f}
+      \strng{bibnamehash}{7d350b65b8e0120c000d6d000e5e880f}
+      \strng{authorbibnamehash}{7d350b65b8e0120c000d6d000e5e880f}
+      \strng{authornamehash}{7d350b65b8e0120c000d6d000e5e880f}
+      \strng{authorfullhash}{7d350b65b8e0120c000d6d000e5e880f}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1118330080}
+      \field{title}{{Convection heat transfer}}
+      \field{year}{2013}
+    \endentry
+    \entry{Perry2015}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,uniquepart=base,hash=583be9c9b6a97b76bf316d9a35e85853}{%
+           family={Perry},
+           familyi={P\bibinitperiod},
+           given={Robert\bibnamedelima H},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=6fd8b3492147913dcc5c5dc2e3c92405}{%
+           family={Green},
+           familyi={G\bibinitperiod},
+           given={Don\bibnamedelima W},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3d3bbd3c76b4acdf0bfa4f7d23837604}
+      \strng{fullhash}{3d3bbd3c76b4acdf0bfa4f7d23837604}
+      \strng{bibnamehash}{3d3bbd3c76b4acdf0bfa4f7d23837604}
+      \strng{authorbibnamehash}{3d3bbd3c76b4acdf0bfa4f7d23837604}
+      \strng{authornamehash}{3d3bbd3c76b4acdf0bfa4f7d23837604}
+      \strng{authorfullhash}{3d3bbd3c76b4acdf0bfa4f7d23837604}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mc Graw}
+      \field{title}{{Perry's chemical engineers' handbook}}
+      \field{year}{2015}
+    \endentry
+    \entry{You2003}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=9bfdd0454d3a2ac5add414e795e58221}{%
+           family={You},
+           familyi={Y\bibinitperiod},
+           given={Jongwoo},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=ab9f8a4214c06b91319fb0d2f62f6f80}{%
+           family={Yoo},
+           familyi={Y\bibinitperiod},
+           given={Jung\bibnamedelima Y},
+           giveni={J\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=7888902881553c7a6ae2007e7eb1caa8}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Haecheon},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{319ed12db61a78e0bd9424225f588b0f}
+      \strng{fullhash}{04b8c5ffdb81ff25afb11d39a8c0900f}
+      \strng{bibnamehash}{04b8c5ffdb81ff25afb11d39a8c0900f}
+      \strng{authorbibnamehash}{04b8c5ffdb81ff25afb11d39a8c0900f}
+      \strng{authornamehash}{319ed12db61a78e0bd9424225f588b0f}
+      \strng{authorfullhash}{04b8c5ffdb81ff25afb11d39a8c0900f}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Turbulent mixed convection associated with upward and downward flows in heated vertical tubes is investigated using the direct numerical simulation technique. With increasing heat flux, the skin friction first decreases and then increases in upward heated flow, while it changes little in downward heated flow. The heat transfer coefficient exhibits a similar trend in upward heated flow, but it monotonically increases in downward heated flow. The log laws of the mean-velocity and temperature profiles are valid for downward heated flow but not for upward heated flow. Finally, the influence of buoyancy on turbulent transport of momentum and heat is elucidated by the ‘external' and ‘structural' effects.}
+      \field{issn}{0017-9310}
+      \field{journaltitle}{International Journal of Heat and Mass Transfer}
+      \field{number}{9}
+      \field{title}{{Direct numerical simulation of heated vertical air flows in fully developed turbulent mixed convection}}
+      \field{volume}{46}
+      \field{year}{2003}
+      \field{pages}{1613\bibrangedash 1627}
+      \range{pages}{15}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0017-9310(02)00442-8
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S0017931002004428
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0017931002004428
+      \endverb
+    \endentry
+    \entry{Yuan1993}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=152888a2216c2649ba055744876342b9}{%
+           family={Yuan},
+           familyi={Y\bibinitperiod},
+           given={X},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=584137ad37f8be17b9f0b4ec37b8140d}{%
+           family={Moser},
+           familyi={M\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=a0f576d53388fa4a02c38eb8f00b893a}{%
+           family={Suter},
+           familyi={S\bibinitperiod},
+           given={P},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{a3e1d16aa53a881a1811061d703221e7}
+      \strng{fullhash}{673832d10482c46350f3668c319c8c82}
+      \strng{bibnamehash}{673832d10482c46350f3668c319c8c82}
+      \strng{authorbibnamehash}{673832d10482c46350f3668c319c8c82}
+      \strng{authornamehash}{a3e1d16aa53a881a1811061d703221e7}
+      \strng{authorfullhash}{673832d10482c46350f3668c319c8c82}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0017-9310}
+      \field{journaltitle}{International journal of heat and mass transfer}
+      \field{number}{18}
+      \field{title}{{Wall functions for numerical simulation of turbulent natural convection along vertical plates}}
+      \field{volume}{36}
+      \field{year}{1993}
+      \field{pages}{4477\bibrangedash 4485}
+      \range{pages}{9}
+    \endentry
+    \entry{Ampofo2003}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,uniquepart=base,hash=777930761d4faa8a9a1fcc3dd9d85bc2}{%
+           family={Ampofo},
+           familyi={A\bibinitperiod},
+           given={F},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=92124a2cac2d421b1f5f96f562148d47}{%
+           family={Karayiannis},
+           familyi={K\bibinitperiod},
+           given={T\bibnamedelima G},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f05dc4c5c9775bf70cd786ae3ed4509b}
+      \strng{fullhash}{f05dc4c5c9775bf70cd786ae3ed4509b}
+      \strng{bibnamehash}{f05dc4c5c9775bf70cd786ae3ed4509b}
+      \strng{authorbibnamehash}{f05dc4c5c9775bf70cd786ae3ed4509b}
+      \strng{authornamehash}{f05dc4c5c9775bf70cd786ae3ed4509b}
+      \strng{authorfullhash}{f05dc4c5c9775bf70cd786ae3ed4509b}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An experimental study of low-level turbulence natural convection in an air filled vertical square cavity was conducted. The cavity was 0.75 m high×0.75 m wide×1.5 m deep giving 2D flow. The hot and cold walls of the cavity were isothermal at 50 and 10 °C respectively giving a Rayleigh number of 1.58×109. The local velocity and temperature were simultaneously measured at different locations in the cavity and both mean and fluctuation quantities are presented, i.e. ū, u′rms, v̄, v′rms, T, T′rms, u′v′, u′T′ and v′T′. The local and average Nusselt numbers, the wall shear stress as well as the turbulent kinetic energy and the dissipation rate of the temperature variance are also presented. The experiments were conducted with very high accuracy and as such the results can form experimental benchmark data and will be useful for validation of computational fluid dynamics codes.}
+      \field{issn}{0017-9310}
+      \field{journaltitle}{International Journal of Heat and Mass Transfer}
+      \field{number}{19}
+      \field{title}{{Experimental benchmark data for turbulent natural convection in an air filled square cavity}}
+      \field{volume}{46}
+      \field{year}{2003}
+      \field{pages}{3551\bibrangedash 3572}
+      \range{pages}{22}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0017-9310(03)00147-9
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S0017931003001479
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0017931003001479
+      \endverb
+      \keyw{Heat transfer,Natural convection,Temperature distribution,Turbulence quantities,Velocity distribution,Wall shear stress}
+    \endentry
+    \entry{Haren2011}{misc}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=411d2448bdee4a4d05d3fe1ae4cbe7e4}{%
+           family={Haren},
+           familyi={H\bibinitperiod},
+           given={S\bibnamedelima W},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Master Thesis, Delft University of Technology, Delft}%
+      }
+      \strng{namehash}{411d2448bdee4a4d05d3fe1ae4cbe7e4}
+      \strng{fullhash}{411d2448bdee4a4d05d3fe1ae4cbe7e4}
+      \strng{bibnamehash}{411d2448bdee4a4d05d3fe1ae4cbe7e4}
+      \strng{authorbibnamehash}{411d2448bdee4a4d05d3fe1ae4cbe7e4}
+      \strng{authornamehash}{411d2448bdee4a4d05d3fe1ae4cbe7e4}
+      \strng{authorfullhash}{411d2448bdee4a4d05d3fe1ae4cbe7e4}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Testing DNS Capability of Open FOAM and STAR-CCM+}}
+      \field{year}{2011}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
