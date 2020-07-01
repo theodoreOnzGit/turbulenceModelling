@@ -1,0 +1,11 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+#- Run parallel
+blockMesh -dict system/blockMeshDictIDDES
+decomposePar
+mpirun -np 12 buoyantPimpleFoam -parallel &
+
+
+#------------------------------------------------------------------------------
