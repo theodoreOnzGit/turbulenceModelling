@@ -3647,7 +3647,7 @@ Could the turbulence model be the issue? I suspect not, even with no turbulence 
 
 I suppose i can switch the model to kEqn and Spalart Allmaras IDDES and see what happens... But i'm taking off from turbulence modelling for now. 
 
-\section{IDDES Run 9: switching from buoyantPimpleFoam to buoyantBousinesqPimpleFoam}
+\section{IDDES Run 9: switching from buoyantPimpleFoam to buoyantBousinesqPimpleFoam (also not done)}
 
 
 I think i recall reading somewhere that buoyantBousinesqPimpleFoam is used for DNS or LES type simulations before. 
@@ -3677,6 +3677,74 @@ It may be useful to see the source code and how each equation U, P and h is solv
 
 
 But that for another time, I need a break from this problem. 
+
+
+\section{IDDES Run 10: Square Mesh}
+
+One wild conjecture is this, maybe buoyantPimpleFoam does not like skewed meshes to simulate turbulence. Maybe that causes numerical instability, i don't know. 
+
+\subsection{Round 1 of blockMesh 16 million cells (too long)}
+
+
+But I will want to try a square mesh with 16 million cells. It will be IDDES type of simulation but with symmetrical mesh.
+
+
+It will be 88 cells in y direction, 264 cells spanwise and 704 cells streamiwise for a total of 16.355 million cells.
+
+
+
+Now this ain't too good. BlockMesh itself while on one processor, took a good 20-30 minutes. I'm not too enthusiastic we'll get to the 0.16s threshold before the term ends if each timestep takes like one day, or even 1 minute.
+
+\subsection{Round 2 of blockMesh 8 million cells: okayish}
+
+Let's ease the calculation and give it about 8 million cells:
+210*70*560.
+
+This is 70 in the y direction. Where we normally give it about 159 cells in y direction. This is about 2.2 times coarser than $\Delta {y}^{+} = 1$ this means we have $\Delta {y}^{+} \approx  2.2$ in x y and z direction.
+
+
+Can sort of think of this as coarse mesh DNS. But i don't resolve Batchelor scales.
+
+
+
+Note that once list construction is complete of the faces and points (50 million faces mind you), then blockMesh is relatively fast, about 1-2 minutes to complete the process.
+
+
+Now blockMesh has finished within 5-10 minutes.
+
+
+Let's now decomposePar using:
+
+
+mpirun -np 15 redistributePar -decompose -parallel 
+
+
+Okay that doesn't work
+
+
+
+I just used 
+
+
+decomposePar
+
+
+and it ran well within 1 minute.
+
+
+
+Next i tried doing the simulation
+
+
+but within 3-4 timesteps, it crashed. Courant number too big.
+
+
+
+Back to the drawing board....
+
+
+I'm closing this investigation for now (02 July 2020).
+
 
 \vspace{\baselineskip}
 \part{Bibliography and Citation}
