@@ -29,8 +29,8 @@ solvers
     {
         $p;
         smoother        DICGaussSeidel;
-        tolerance       1e-06;
-        relTol          0;
+        tolerance       0;
+        relTol          0.01;
     }
 
 
@@ -38,7 +38,7 @@ solvers
     {
         solver           GAMG;
         tolerance        1e-7;
-        relTol           0.01;
+        relTol           0.1;
 
         smoother         DICGaussSeidel;
 
@@ -62,7 +62,7 @@ solvers
     "(U|h|e|k|epsilon|omega|R|rho)Final"
     {
         $U;
-        relTol          0;
+        relTol          0.01;
     }
 }
 

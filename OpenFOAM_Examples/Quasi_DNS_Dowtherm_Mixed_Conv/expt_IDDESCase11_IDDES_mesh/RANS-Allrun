@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+#firstly run blockMesh in the other folder
+runApplication blockMesh -case ../RANSCase1/.
+
+#- Run serial
+#runApplication $(getApplication)
+
+#- Run parallel
+runApplication $(getApplication) -case ../RANSCase1/.
+
+
+#------------------------------------------------------------------------------
