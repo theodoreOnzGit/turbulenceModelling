@@ -1,0 +1,77 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+transportModel Newtonian;
+
+// Laminar viscosity
+nu              1.28678e-06;
+
+// Thermal expansion coefficient
+beta            9.680259144e-04;
+
+// note that the density here is not absolute
+// hence, we don't specify any sort of density here
+//
+// instead the formula used is this:
+//
+// from TEqn.H (in buoyantBoussinesqPimpleFoam source code)
+//
+// rhok = 1.0 - beta* (T-Tref)
+//
+// if a straight line plot is used, Tref = 0 
+//
+// rhok = 1.0 - beta*(T-Tref)
+//
+// how is rhok used?
+//
+// from PEqn.H
+//
+// p_rgh = p - rhok*gh
+//
+// note that in this context, 
+//
+// p and p_rgh are both absolute pressure divided by density
+//
+// for example, 
+//
+// rho = 1361.644 - 0.984537*T
+//
+// at T = 350K, rho =1017
+//
+// rho/1017 = 1 + (1361.644-1017)/1017 - 0.984537/1017 * T
+//
+// so we take rhok to be rho/ (reference density)
+//
+// beta = absolute beta / (reference density)
+//
+// Tref = reference temperature
+//
+
+
+// Reference temperature
+TRef            350;
+
+// Laminar Prandtl number
+Pr              18.0;
+
+// Turbulent Prandtl number
+Prt             0.85;
+
+
+// this is my rough best match for dowtherm at 350K which is moderate temperature betweek 313-373K
+
+// ************************************************************************* //

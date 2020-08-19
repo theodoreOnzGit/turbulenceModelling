@@ -1,0 +1,214 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     buoyantBoussinesqPimpleFoam;
+
+startFrom       latestTime;
+
+startTime       200;
+
+stopAt          endTime;
+
+endTime         300;
+
+deltaT          2e-4;
+
+writeControl    adjustableRunTime;
+
+writeInterval   0.001;
+
+purgeWrite      10;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+maxCo		0.5;
+
+adjustTimeStep	yes;
+/*
+
+functions
+{
+    fieldAverage1
+    {
+        type            fieldAverage;
+        libs            ("libfieldFunctionObjects.so");
+        writeControl    writeTime;
+
+        fields
+        (
+            U
+            {
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            }
+
+            p
+            {
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            }
+        );
+    }
+
+
+   localHeatTrfCoeff_Left
+        {
+        type            heatTransferCoeff;
+        libs            ("libfieldFunctionObjects.so");
+        executeControl  writeTime;
+        writeControl    writeTime;
+        // region          oil;
+        patches         ("leftWall");
+        field           T;
+
+        htcModel        fixedReferenceTemperature;
+        TRef            343;
+        }
+
+   localHeatTrfCoeff_Right
+        {
+        type            heatTransferCoeff;
+        libs            ("libfieldFunctionObjects.so");
+        executeControl  writeTime;
+        writeControl    writeTime;
+        // region          oil;
+        patches         ("rightWall"); 
+        field           T;
+
+        htcModel        fixedReferenceTemperature;
+        TRef            343;
+        }
+
+    
+    localWallShearStress
+	{
+	type		wallShearStress;
+	libs            ("libfieldFunctionObjects.so");
+        executeControl  writeTime;
+        writeControl    writeTime;
+	patches		("leftWall" "rightWall");
+
+
+	}
+
+
+
+
+   avg_ValuesRight
+        {
+        type            surfaceFieldValue;
+        libs            ("libfieldFunctionObjects.so");
+
+        executeControl  writeTime;
+        writeControl    writeTime;
+        writeFields     yes;
+        fields
+        (
+        heatTransferCoeff(T)
+	wallShearStress
+        T
+        );
+
+        regionType      patch;
+        name            rightWall;
+        operation       areaAverage;
+        // region          oil;
+        surfaceFormat   none;
+
+        }
+
+
+
+   avg_ValuesLeft                                                                           {
+        type            surfaceFieldValue;
+        libs            ("libfieldFunctionObjects.so");
+
+        executeControl  writeTime;
+        writeControl    writeTime;
+        writeFields     yes;
+        fields
+        (
+        heatTransferCoeff(T)
+        wallShearStress
+        T
+        );
+
+        regionType      patch;
+        name            leftWall;
+        operation       areaAverage;
+        // region          oil;
+        surfaceFormat   none;
+
+        }
+
+
+   temp_and_velocity
+	{
+	type sets;
+	libs            ("libsampling.so");
+
+	interpolationScheme cellPointFace;
+
+	setFormat raw;
+	executeControl  writeTime;
+        writeControl    writeTime;
+	sets
+	(
+
+	faceLineIntersection // samples data across a line at cell faces
+    	{
+        type            face;
+        axis            y; // i use y for easy plotting, but u can use xyz to indicate you want all 3 coordinates
+        start           (0 -0.0075 0.06);
+        end             (0 0.0075 0.06);
+    	}
+
+        uniformPoints // samples data uniformly across a line based on no. of points
+        {
+        type            uniform;
+        axis            distance;
+        start           (0 -0.0075 0.06);
+        end             (0 0.0075 0.06);         
+	nPoints		300;
+        }
+
+	);
+
+
+	fields
+	(
+	T
+	U
+	);
+	}	
+
+
+}
+*/
+// ************************************************************************* //
