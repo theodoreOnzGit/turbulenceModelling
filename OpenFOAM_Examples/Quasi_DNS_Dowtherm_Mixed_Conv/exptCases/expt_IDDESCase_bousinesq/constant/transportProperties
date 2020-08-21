@@ -22,7 +22,7 @@ nu              1.28678e-06;
 
 // Thermal expansion coefficient
 beta            9.680259144e-04;
-
+beta 		0;
 // note that the density here is not absolute
 // hence, we don't specify any sort of density here
 //

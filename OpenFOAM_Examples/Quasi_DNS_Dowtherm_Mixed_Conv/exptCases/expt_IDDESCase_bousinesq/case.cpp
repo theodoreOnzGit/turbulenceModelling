@@ -106,3 +106,41 @@ dpdt            no;
 //
 //
 // i suspect that making some thermophysical properties constant may stabilise the solver...
+//
+//
+// i made the density constant and it works!!!
+//
+//
+// the stability increased leaps and bounds
+//
+// however, at 1.06s, the max temp is 406 ish and min temp is 238
+//
+//
+// useful links
+// boussinesqPimpleFoam solvers:
+// Varun Report: buoyantBoussinesqPimpleFoam
+//
+// http://www.tfd.chalmers.se/~hani/kurser/OS_CFD_2016/VarunVenkatesh/Varun_report.pdf
+//
+//
+// https://caefn.com/openfoam/solvers-buoyantpimplefoam
+//
+//
+// buoyantPimpleFoam internal energy (liquid) vs enthalpy (gas) modelling
+//
+// https://openfoam.org/release/2-2-0/thermophysical-multiphase-energy/
+//
+//
+// what is dpdt and how does it affect equations:
+//
+// https://www.cfd-online.com/Forums/openfoam/119851-what-dpdt-term-chtmultiregionfoam.html
+//
+// LES for buoyantBoussinesqPImpleFoam successfully used
+//
+// https://link-springer-com.libproxy.berkeley.edu/article/10.1007/s00231-018-2470-8?shared-article-renderer
+//
+// courant Number function for debugging
+//
+// https://www.openfoam.com/documentation/guides/latest/doc/guide-function-objects.html
+//
+// https://www.openfoam.com/documentation/user-guide/monitoring-jobs.php
