@@ -15,22 +15,21 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+dimensions      [ 0 2 -2 0 0 0 0 ];
 
-
-internalField   uniform (0.00025 0 0 0.00025 0 0.00025);
+internalField   uniform ( 0.00025 0 0 0.00025 0 0.00025 );
 
 boundaryField
 {
     leftWall
     {
         type            kqRWallFunction;
-        value           uniform (0.00025 0 0 0.00025 0 0.00025);
+        value           uniform ( 0.00025 0 0 0.00025 0 0.00025 );
     }
     rightWall
     {
         type            kqRWallFunction;
-        value           uniform (0.00025 0 0 0.00025 0 0.00025);
+        value           uniform ( 0.00025 0 0 0.00025 0 0.00025 );
     }
     leftSides_periodic0
     {

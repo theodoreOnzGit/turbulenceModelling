@@ -36,10 +36,10 @@ solvers
 
     p_rgh
     {
-        solver           GAMG;
-        tolerance        1e-5;
+        solver           PBiCGStab;
+        tolerance        1e-9;
         relTol           0.01;
-
+	preconditioner	 DIC;
         smoother         DICGaussSeidel;
 
     }
@@ -78,12 +78,12 @@ PIMPLE
     {
         U
         {
-                tolerance  1e-3;
+                tolerance  1e-5;
                 relTol      0;
         }
         p
         {
-                tolerance  5e-2;
+                tolerance  1e-5;
                 relTol      0;
         }
      }
