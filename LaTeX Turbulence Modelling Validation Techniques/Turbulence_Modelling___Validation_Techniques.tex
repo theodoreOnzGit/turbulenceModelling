@@ -3678,6 +3678,22 @@ It may be useful to see the source code and how each equation U, P and h is solv
 
 But that for another time, I need a break from this problem. 
 
+Okay I tried buoyantBoussinesqPimpleFoam because i needed buoyantPimpleFoam to simulate turbulence on more complex geometries and it was failing badly. 
+
+The mesh was 36*158*36. 
+
+There were some promising results, the max courant number was 2x that of the mean courant number even until crash. The simulation crashed at around 0.06s. But the courant numbers were stable. 
+
+
+Why was this promising? Well, the background is this: temperature, pressure (mass balance) and velocity are all linked in the solver of buoyantPimpleFoam. Now when an error or local fluctuation in pressure gets too high, buoyantPimpleFoam starts to get wonky. So usually high pressure means results in high velocity, so Courant Numbers explode. Now, in compressible fluids, temperature is linked to density and pressure. So an error in temperature variations can also cause velocity and pressure to become wonky. Thus Courant number explodes and temperature goes negative. 
+
+
+This is on the whole quite encouraging despite the crash because we did not see courant numbers explode. Only that temperature equation was unable to be solved. And one other note of observation was that the cumulative mass error grew bigger over time.
+
+My suspicion is that for this cyclic case, a decrease in density means that mass has to come in from somewhere and a decrease in density means mass has to go somewhere. However, since this case is cyclic, then the error gets bigger over time. We don't see this in the pimpleFoam channel flow case. So this is one possibility. 
+
+The action is then to make beta 0. And see what happens.
+
 
 \section{IDDES Run 10: Square Mesh}
 
@@ -3744,6 +3760,63 @@ Back to the drawing board....
 
 
 I'm closing this investigation for now (02 July 2020).
+
+\section{IDDES Run 11: mapping a coarse $y^+$ mesh to a fine one}
+
+\subsection{blockMesh, getting y+ to 30}
+
+okay so i'm increasing $y^+$ to about 30 ish. This is suitable for RANS near boundary layers. So that's okay for IDDES too. 
+
+Though of course, doing so makes the mesh 14 by 5 by 38 (too coarse).
+
+If i do 30 grids in y direction, $y^+$ is about $5^+$ which is still pretty fine.
+
+I suppose i can do $y^+$=30 for starters.
+
+This case solved in less than 30s, very fast. Or rather, crashed at about 3s of simulation time.
+I'm increasing y resolution to 10. 
+
+Simulation seems to crash around 1.8s of simulated time. 
+
+I'm going to introduce relaxation factors to dampen things out. 
+Relaxation factor of 0.7 should help do the trick.
+
+Tolerance all round set to 1e-05. Added residual control entries to PIMPLE as well.
+
+Looks like changing fvSolution managed to help increase stability of simulation, made it past 2s.
+
+Simulation is now stable past 3s.
+Simulation now stable at 14s with minimal courant disruption, blowups etc.
+Time ratio is about 20s of simulated time for 400s of real time (20x). Quite cheap (ran in parallel 4 processors). 
+
+Heat transfer coefficient is about 400-500. 
+This is about the same as the RANS simulation which is has about 560 heat transfer coeffcient.
+
+Now stable at 56s. This is a stable case.
+About 5320 cells are used. Works almost like a RANS case. 
+
+Ran to 98s, declaring this case stable.
+
+Just not quite steady state yet, the hot side heat trf coeff is more than cold side. 
+
+In fact, after running for 600 plus seconds of simulation time, the heat transfer coefficient for hot side is much greater than that for cold side, and there is a continuity error for mass of about 400 (cumulative). So mass is disappearing and heat. Something is quite wrong.
+
+
+\section{getting back to IDDES mesh}
+
+now i map these fields to IDDES mesh 40 by 158 by 40. Using pimple loop, residuals do not tend to converge below 0.01. Oscillations are otherwise stable.
+
+I'm changing the initial U residuals to exit at 1e-2 rather than 1e-3.
+
+For speed i'd also change the relaxation factors to 0.9. 
+
+Solver blew up though... 
+
+And relaxation factor at 0.9 doesn't speed it up. It still has the oscillating residual problem.
+
+Relaxation factor 0.5 will also take long.
+
+Not going to waste more time. Closing this investigation.
 
 
 \vspace{\baselineskip}
