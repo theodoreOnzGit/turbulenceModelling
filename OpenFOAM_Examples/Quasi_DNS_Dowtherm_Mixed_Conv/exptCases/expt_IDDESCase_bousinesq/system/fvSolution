@@ -74,7 +74,8 @@ PIMPLE
     nOuterCorrectors 1000;
     nCorrectors     3;
     nNonOrthogonalCorrectors 0;
-    pRefCell        0;
+    //pRefCell        5000;
+    pRefPoint	    (0.001 0.001 0.001);
     pRefValue       1e5;
 
     residualControl

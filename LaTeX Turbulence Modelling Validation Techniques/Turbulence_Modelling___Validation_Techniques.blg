@@ -1,19 +1,17 @@
-[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is 'Turbulence_Modelling___Validation_Techniques.blg'
-[47] biber:322> INFO - === Wed Aug 19, 2020, 17:44:14
-[56] Biber.pm:415> INFO - Reading 'Turbulence_Modelling___Validation_Techniques.bcf'
-[104] Biber.pm:943> INFO - Found 11 citekeys in bib section 0
-[113] Biber.pm:4256> INFO - Processing section 0
-[113] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
-[113] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
-[120] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[123] bibtex.pm:1653> INFO - LaTeX decoding ...
-[198] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliography.bib'
-[201] Utils.pm:293> WARN - Duplicate entry key: 'Shams2013a' in file 'bibliography.bib', skipping ...
-[275] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[275] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[275] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[275] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[283] bbl.pm:652> INFO - Writing 'Turbulence_Modelling___Validation_Techniques.bbl' with encoding 'UTF-8'
-[290] bbl.pm:755> INFO - Output to Turbulence_Modelling___Validation_Techniques.bbl
-[291] Biber.pm:128> INFO - WARNINGS: 1
+[31] biber:315> INFO - === Mon Aug 24, 2020, 10:32:52
+[57] Biber.pm:371> INFO - Reading 'Turbulence_Modelling___Validation_Techniques.bcf'
+[133] Biber.pm:889> INFO - Found 11 citekeys in bib section 0
+[150] Biber.pm:4093> INFO - Processing section 0
+[164] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[171] bibtex.pm:1512> INFO - LaTeX decoding ...
+[313] bibtex.pm:1329> INFO - Found BibTeX data source 'bibliography.bib'
+[318] Utils.pm:193> WARN - Duplicate entry key: 'Shams2013a' in file 'bibliography.bib', skipping ...
+[439] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[439] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[440] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[440] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
+[453] bbl.pm:636> INFO - Writing 'Turbulence_Modelling___Validation_Techniques.bbl' with encoding 'UTF-8'
+[466] bbl.pm:739> INFO - Output to Turbulence_Modelling___Validation_Techniques.bbl
+[466] Biber.pm:110> INFO - WARNINGS: 1

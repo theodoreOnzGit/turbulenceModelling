@@ -3647,7 +3647,7 @@ Could the turbulence model be the issue? I suspect not, even with no turbulence 
 
 I suppose i can switch the model to kEqn and Spalart Allmaras IDDES and see what happens... But i'm taking off from turbulence modelling for now. 
 
-\section{IDDES Run 9: switching from buoyantPimpleFoam to buoyantBousinesqPimpleFoam (also not done)}
+\section{IDDES Run 9: switching from buoyantPimpleFoam to buoyantBousinesqPimpleFoam (somewhat tested)}
 
 
 I think i recall reading somewhere that buoyantBousinesqPimpleFoam is used for DNS or LES type simulations before. 
@@ -3693,6 +3693,23 @@ This is on the whole quite encouraging despite the crash because we did not see 
 My suspicion is that for this cyclic case, a decrease in density means that mass has to come in from somewhere and a decrease in density means mass has to go somewhere. However, since this case is cyclic, then the error gets bigger over time. We don't see this in the pimpleFoam channel flow case. So this is one possibility. 
 
 The action is then to make beta 0. And see what happens.
+
+\subsection{removing natural convection}
+
+Now this seems to work, reducing beta to 0 makes the case run well. Up to 1s, the cases are stable numerically. However, temperatures still blow up after several seconds, eg. 40+ and 100+ seconds.
+
+
+At 1s, the max temp is 406K and min temp is 238K. I don't know why...
+
+However, one thing worthy of note is that in early timesteps, the max temperature is at the first cell. Usually, pref (reference pressure) is started at cell 0. So i don't know if that could be what's causing this issue.
+
+My conjecture is that if pref is set to some fixed value at the cyclic BC, numerical instabilities can ensue.
+
+So i can set pRef just off the wall, maybe point 5000 (somewhere in the neighbourhood of that). But first of course, i want to negate the pref entries, see if something goes wrong.
+
+Okay yes, we do need pref. And that provides the correct pressure.
+
+I used pref point as my reference to set this pressure somewhere in the middle of the domain. Needs to be given as a vector coordinate. I will then test it on another laptop...
 
 
 \section{IDDES Run 10: Square Mesh}

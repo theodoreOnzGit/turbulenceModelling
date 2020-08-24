@@ -92,11 +92,12 @@
 \BOOKMARK [3][-]{subsubsection.19.0.6}{Results of IDDES Run 6}{subsubsection.19.0.1}% 92
 \BOOKMARK [1][-]{section.20}{IDDES Run 7: Switching off Natural Convection}{part.3}% 93
 \BOOKMARK [1][-]{section.21}{IDDES Run 8: \(not done\)}{part.3}% 94
-\BOOKMARK [1][-]{section.22}{IDDES Run 9: switching from buoyantPimpleFoam to buoyantBousinesqPimpleFoam \(also not done\)}{part.3}% 95
-\BOOKMARK [1][-]{section.23}{IDDES Run 10: Square Mesh}{part.3}% 96
-\BOOKMARK [2][-]{subsection.23.1}{Round 1 of blockMesh 16 million cells \(too long\)}{section.23}% 97
-\BOOKMARK [2][-]{subsection.23.2}{Round 2 of blockMesh 8 million cells: okayish}{section.23}% 98
-\BOOKMARK [1][-]{section.24}{IDDES Run 11: mapping a coarse y+ mesh to a fine one}{part.3}% 99
-\BOOKMARK [2][-]{subsection.24.1}{blockMesh, getting y+ to 30}{section.24}% 100
-\BOOKMARK [1][-]{section.25}{getting back to IDDES mesh}{part.3}% 101
-\BOOKMARK [0][-]{part.4}{IV Bibliography and Citation}{}% 102
+\BOOKMARK [1][-]{section.22}{IDDES Run 9: switching from buoyantPimpleFoam to buoyantBousinesqPimpleFoam \(somewhat tested\)}{part.3}% 95
+\BOOKMARK [2][-]{subsection.22.1}{removing natural convection}{section.22}% 96
+\BOOKMARK [1][-]{section.23}{IDDES Run 10: Square Mesh}{part.3}% 97
+\BOOKMARK [2][-]{subsection.23.1}{Round 1 of blockMesh 16 million cells \(too long\)}{section.23}% 98
+\BOOKMARK [2][-]{subsection.23.2}{Round 2 of blockMesh 8 million cells: okayish}{section.23}% 99
+\BOOKMARK [1][-]{section.24}{IDDES Run 11: mapping a coarse y+ mesh to a fine one}{part.3}% 100
+\BOOKMARK [2][-]{subsection.24.1}{blockMesh, getting y+ to 30}{section.24}% 101
+\BOOKMARK [1][-]{section.25}{getting back to IDDES mesh}{part.3}% 102
+\BOOKMARK [0][-]{part.4}{IV Bibliography and Citation}{}% 103
